@@ -44,7 +44,7 @@ bool Theme::_set(const StringName &p_name, const Variant &p_value) {
 		if (type == "icons") {
 			set_icon(prop_name, theme_type, p_value);
 		} else if (type == "styles") {
-			set_stylebox(prop_name, theme_type, p_value);
+			set_style_box(prop_name, theme_type, p_value);
 		} else if (type == "fonts") {
 			set_font(prop_name, theme_type, p_value);
 		} else if (type == "font_sizes") {
@@ -370,7 +370,7 @@ void Theme::get_icon_type_list(List<StringName> *p_list) const {
 }
 
 // Styleboxes.
-void Theme::set_stylebox(const StringName &p_name, const StringName &p_theme_type, const Ref<StyleBox> &p_style) {
+void Theme::set_style_box(const StringName &p_name, const StringName &p_theme_type, const Ref<StyleBox> &p_style) {
 	ERR_FAIL_COND_MSG(!is_valid_item_name(p_name), vformat("Invalid item name: '%s'", p_name));
 	ERR_FAIL_COND_MSG(!is_valid_type_name(p_theme_type), vformat("Invalid type name: '%s'", p_theme_type));
 
@@ -896,7 +896,7 @@ void Theme::set_theme_item(DataType p_data_type, const StringName &p_name, const
 			ERR_FAIL_COND_MSG(p_value.get_type() != Variant::OBJECT, "Theme item's data type (Object) does not match Variant's type (" + Variant::get_type_name(p_value.get_type()) + ").");
 
 			Ref<StyleBox> stylebox_value = Object::cast_to<StyleBox>(p_value.get_validated_object());
-			set_stylebox(p_name, p_theme_type, stylebox_value);
+			set_style_box(p_name, p_theme_type, stylebox_value);
 		} break;
 		case DATA_TYPE_MAX:
 			break; // Can't happen, but silences warning.
@@ -1614,7 +1614,7 @@ void Theme::merge_with(const Ref<Theme> &p_other) {
 	{
 		for (const KeyValue<StringName, ThemeStyleMap> &E : p_other->style_map) {
 			for (const KeyValue<StringName, Ref<StyleBox>> &F : E.value) {
-				set_stylebox(F.key, E.key, F.value);
+				set_style_box(F.key, E.key, F.value);
 			}
 		}
 	}
@@ -1701,7 +1701,7 @@ void Theme::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_icon_list", "theme_type"), &Theme::_get_icon_list);
 	ClassDB::bind_method(D_METHOD("get_icon_type_list"), &Theme::_get_icon_type_list);
 
-	ClassDB::bind_method(D_METHOD("set_stylebox", "name", "theme_type", "texture"), &Theme::set_stylebox);
+	ClassDB::bind_method(D_METHOD("set_style_box", "name", "theme_type", "texture"), &Theme::set_style_box);
 	ClassDB::bind_method(D_METHOD("get_stylebox", "name", "theme_type"), &Theme::get_stylebox);
 	ClassDB::bind_method(D_METHOD("has_stylebox", "name", "theme_type"), &Theme::has_stylebox);
 	ClassDB::bind_method(D_METHOD("rename_stylebox", "old_name", "name", "theme_type"), &Theme::rename_stylebox);

@@ -353,7 +353,7 @@
 			<param index="1" name="theme_type" type="StringName" />
 			<description>
 				Returns [code]true[/code] if the [StyleBox] property defined by [param name] and [param theme_type] exists.
-				Returns [code]false[/code] if it doesn't exist. Use [method set_stylebox] to define it.
+				Returns [code]false[/code] if it doesn't exist. Use [method set_style_box] to define it.
 			</description>
 		</method>
 		<method name="has_theme_item" qualifiers="const">
@@ -507,7 +507,7 @@
 				Creates or changes the value of the icon property defined by [param name] and [param theme_type]. Use [method clear_icon] to remove the property.
 			</description>
 		</method>
-		<method name="set_stylebox">
+		<method name="set_style_box">
 			<return type="void" />
 			<param index="0" name="name" type="StringName" />
 			<param index="1" name="theme_type" type="StringName" />

@@ -1554,7 +1554,7 @@ void ThemeItemEditorDialog::_add_theme_item(Theme::DataType p_data_type, String 
 			ur->add_undo_method(*edited_theme, "clear_icon", p_item_name, p_item_type);
 			break;
 		case Theme::DATA_TYPE_STYLEBOX:
-			ur->add_do_method(*edited_theme, "set_stylebox", p_item_name, p_item_type, Ref<StyleBox>());
+			ur->add_do_method(*edited_theme, "set_style_box", p_item_name, p_item_type, Ref<StyleBox>());
 			ur->add_undo_method(*edited_theme, "clear_stylebox", p_item_name, p_item_type);
 
 			if (theme_type_editor->is_stylebox_pinned(edited_theme->get_stylebox(p_item_name, p_item_type))) {
@@ -2841,7 +2841,7 @@ void ThemeTypeEditor::_add_default_type_items() {
 		ThemeDB::get_singleton()->get_default_theme()->get_stylebox_list(default_type, &names);
 		for (const StringName &E : names) {
 			if (!new_snapshot->has_stylebox(E, edited_type)) {
-				new_snapshot->set_stylebox(E, edited_type, ThemeDB::get_singleton()->get_default_theme()->get_stylebox(E, edited_type));
+				new_snapshot->set_style_box(E, edited_type, ThemeDB::get_singleton()->get_default_theme()->get_stylebox(E, edited_type));
 			}
 		}
 	}
@@ -2935,7 +2935,7 @@ void ThemeTypeEditor::_item_add_cbk(int p_data_type, Control *p_control) {
 		} break;
 		case Theme::DATA_TYPE_STYLEBOX: {
 			Ref<StyleBox> sb;
-			ur->add_do_method(*edited_theme, "set_stylebox", item_name, edited_type, sb);
+			ur->add_do_method(*edited_theme, "set_style_box", item_name, edited_type, sb);
 			ur->add_undo_method(*edited_theme, "clear_stylebox", item_name, edited_type);
 
 			if (is_stylebox_pinned(sb)) {
@@ -2981,7 +2981,7 @@ void ThemeTypeEditor::_item_override_cbk(int p_data_type, String p_item_name) {
 		} break;
 		case Theme::DATA_TYPE_STYLEBOX: {
 			Ref<StyleBox> sb;
-			ur->add_do_method(*edited_theme, "set_stylebox", p_item_name, edited_type, sb);
+			ur->add_do_method(*edited_theme, "set_style_box", p_item_name, edited_type, sb);
 			ur->add_undo_method(*edited_theme, "clear_stylebox", p_item_name, edited_type);
 
 			if (is_stylebox_pinned(sb)) {
@@ -3030,9 +3030,9 @@ void ThemeTypeEditor::_item_remove_cbk(int p_data_type, String p_item_name) {
 			Ref<StyleBox> sb = edited_theme->get_stylebox(p_item_name, edited_type);
 			ur->add_do_method(*edited_theme, "clear_stylebox", p_item_name, edited_type);
 			if (edited_theme->has_stylebox(p_item_name, edited_type)) {
-				ur->add_undo_method(*edited_theme, "set_stylebox", p_item_name, edited_type, sb);
+				ur->add_undo_method(*edited_theme, "set_style_box", p_item_name, edited_type, sb);
 			} else {
-				ur->add_undo_method(*edited_theme, "set_stylebox", p_item_name, edited_type, Ref<StyleBox>());
+				ur->add_undo_method(*edited_theme, "set_style_box", p_item_name, edited_type, Ref<StyleBox>());
 			}
 
 			if (is_stylebox_pinned(sb)) {
@@ -3193,11 +3193,11 @@ void ThemeTypeEditor::_stylebox_item_changed(Ref<StyleBox> p_value, String p_ite
 	EditorUndoRedoManager *ur = EditorUndoRedoManager::get_singleton();
 	ur->create_action(TTR("Set Stylebox Item in Theme"));
 
-	ur->add_do_method(*edited_theme, "set_stylebox", p_item_name, edited_type, p_value.is_valid() ? p_value : Ref<StyleBox>());
+	ur->add_do_method(*edited_theme, "set_style_box", p_item_name, edited_type, p_value.is_valid() ? p_value : Ref<StyleBox>());
 	if (edited_theme->has_stylebox(p_item_name, edited_type)) {
-		ur->add_undo_method(*edited_theme, "set_stylebox", p_item_name, edited_type, edited_theme->get_stylebox(p_item_name, edited_type));
+		ur->add_undo_method(*edited_theme, "set_style_box", p_item_name, edited_type, edited_theme->get_stylebox(p_item_name, edited_type));
 	} else {
-		ur->add_undo_method(*edited_theme, "set_stylebox", p_item_name, edited_type, Ref<StyleBox>());
+		ur->add_undo_method(*edited_theme, "set_style_box", p_item_name, edited_type, Ref<StyleBox>());
 	}
 
 	ur->add_do_method(this, "_change_pinned_stylebox");
