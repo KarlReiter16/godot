@@ -146,7 +146,7 @@ public:
 	void set_slot_custom_icon_right(int p_slot_index, const Ref<Texture2D> &p_custom_icon);
 	Ref<Texture2D> get_slot_custom_icon_right(int p_slot_index) const;
 
-	bool is_slot_draw_stylebox(int p_slot_index) const;
+	bool is_slot_draw_style_box(int p_slot_index) const;
 	void set_slot_draw_stylebox(int p_slot_index, bool p_enable);
 
 	void set_ignore_invalid_connection_type(bool p_ignore);

@@ -150,7 +150,7 @@
 				Returns the [HBoxContainer] used for the title bar, only containing a [Label] for displaying the title by default. This can be used to add custom controls to the title bar such as option or close buttons.
 			</description>
 		</method>
-		<method name="is_slot_draw_stylebox" qualifiers="const">
+		<method name="is_slot_draw_style_box" qualifiers="const">
 			<return type="bool" />
 			<param index="0" name="slot_index" type="int" />
 			<description>
