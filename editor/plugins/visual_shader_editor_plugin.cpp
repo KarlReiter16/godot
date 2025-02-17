@@ -252,7 +252,7 @@ void VisualShaderGraphPlugin::show_port_preview(VisualShader::Type p_type, int p
 
 			GraphNode *graph_node = Object::cast_to<GraphNode>(link.graph_element);
 			if (graph_node) {
-				graph_node->set_slot_draw_stylebox(vbox->get_index(false), false);
+				graph_node->set_slot_draw_style_box(vbox->get_index(false), false);
 			}
 
 			Control *offset = memnew(Control);

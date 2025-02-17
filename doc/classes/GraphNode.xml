@@ -182,13 +182,13 @@
 			<param index="6" name="color_right" type="Color" />
 			<param index="7" name="custom_icon_left" type="Texture2D" default="null" />
 			<param index="8" name="custom_icon_right" type="Texture2D" default="null" />
-			<param index="9" name="draw_stylebox" type="bool" default="true" />
+			<param index="9" name="draw_style_box" type="bool" default="true" />
 			<description>
 				Sets properties of the slot with the given [param slot_index].
 				If [param enable_left_port]/[param enable_right_port] is [code]true[/code], a port will appear and the slot will be able to be connected from this side.
 				With [param type_left]/[param type_right] an arbitrary type can be assigned to each port. Two ports can be connected if they share the same type, or if the connection between their types is allowed in the parent [GraphEdit] (see [method GraphEdit.add_valid_connection_type]). Keep in mind that the [GraphEdit] has the final say in accepting the connection. Type compatibility simply allows the [signal GraphEdit.connection_request] signal to be emitted.
 				Ports can be further customized using [param color_left]/[param color_right] and [param custom_icon_left]/[param custom_icon_right]. The color parameter adds a tint to the icon. The custom icon can be used to override the default port dot.
-				Additionally, [param draw_stylebox] can be used to enable or disable drawing of the background stylebox for each slot. See [theme_item slot].
+				Additionally, [param draw_style_box] can be used to enable or disable drawing of the background stylebox for each slot. See [theme_item slot].
 				Individual properties can also be set using one of the [code]set_slot_*[/code] methods.
 				[b]Note:[/b] This method only sets properties of the slot. To create the slot itself, add a [Control]-derived child to the GraphNode.
 			</description>
@@ -225,7 +225,7 @@
 				Sets the custom [Texture2D] of the right (output) side of the slot with the given [param slot_index] to [param custom_icon].
 			</description>
 		</method>
-		<method name="set_slot_draw_stylebox">
+		<method name="set_slot_draw_style_box">
 			<return type="void" />
 			<param index="0" name="slot_index" type="int" />
 			<param index="1" name="enable" type="bool" />

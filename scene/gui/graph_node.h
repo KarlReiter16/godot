@@ -51,7 +51,7 @@ class GraphNode : public GraphElement {
 		Color color_right = Color(1, 1, 1, 1);
 		Ref<Texture2D> custom_port_icon_right;
 
-		bool draw_stylebox = true;
+		bool draw_style_box = true;
 	};
 
 	struct PortCache {
@@ -118,7 +118,7 @@ public:
 
 	HBoxContainer *get_titlebar_hbox();
 
-	void set_slot(int p_slot_index, bool p_enable_left, int p_type_left, const Color &p_color_left, bool p_enable_right, int p_type_right, const Color &p_color_right, const Ref<Texture2D> &p_custom_left = Ref<Texture2D>(), const Ref<Texture2D> &p_custom_right = Ref<Texture2D>(), bool p_draw_stylebox = true);
+	void set_slot(int p_slot_index, bool p_enable_left, int p_type_left, const Color &p_color_left, bool p_enable_right, int p_type_right, const Color &p_color_right, const Ref<Texture2D> &p_custom_left = Ref<Texture2D>(), const Ref<Texture2D> &p_custom_right = Ref<Texture2D>(), bool p_draw_style_box = true);
 	void clear_slot(int p_slot_index);
 	void clear_all_slots();
 
@@ -147,7 +147,7 @@ public:
 	Ref<Texture2D> get_slot_custom_icon_right(int p_slot_index) const;
 
 	bool is_slot_draw_style_box(int p_slot_index) const;
-	void set_slot_draw_stylebox(int p_slot_index, bool p_enable);
+	void set_slot_draw_style_box(int p_slot_index, bool p_enable);
 
 	void set_ignore_invalid_connection_type(bool p_ignore);
 	bool is_ignoring_valid_connection_type() const;

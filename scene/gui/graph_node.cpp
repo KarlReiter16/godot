@@ -65,8 +65,8 @@ bool GraphNode::_set(const StringName &p_name, const Variant &p_value) {
 		slot.color_right = p_value;
 	} else if (slot_property_name == "right_icon") {
 		slot.custom_port_icon_right = p_value;
-	} else if (slot_property_name == "draw_stylebox") {
-		slot.draw_stylebox = p_value;
+	} else if (slot_property_name == "draw_style_box") {
+		slot.draw_style_box = p_value;
 	} else {
 		return false;
 	}
@@ -80,7 +80,7 @@ bool GraphNode::_set(const StringName &p_name, const Variant &p_value) {
 			slot.color_right,
 			slot.custom_port_icon_left,
 			slot.custom_port_icon_right,
-			slot.draw_stylebox);
+			slot.draw_style_box);
 
 	queue_redraw();
 	return true;
@@ -117,8 +117,8 @@ bool GraphNode::_get(const StringName &p_name, Variant &r_ret) const {
 		r_ret = slot.color_right;
 	} else if (slot_property_name == "right_icon") {
 		r_ret = slot.custom_port_icon_right;
-	} else if (slot_property_name == "draw_stylebox") {
-		r_ret = slot.draw_stylebox;
+	} else if (slot_property_name == "draw_style_box") {
+		r_ret = slot.draw_style_box;
 	} else {
 		return false;
 	}
@@ -144,7 +144,7 @@ void GraphNode::_get_property_list(List<PropertyInfo> *p_list) const {
 		p_list->push_back(PropertyInfo(Variant::INT, base + "right_type"));
 		p_list->push_back(PropertyInfo(Variant::COLOR, base + "right_color"));
 		p_list->push_back(PropertyInfo(Variant::OBJECT, base + "right_icon", PROPERTY_HINT_RESOURCE_TYPE, "Texture2D", PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_STORE_IF_NULL));
-		p_list->push_back(PropertyInfo(Variant::BOOL, base + "draw_stylebox"));
+		p_list->push_back(PropertyInfo(Variant::BOOL, base + "draw_style_box"));
 		idx++;
 	}
 }
@@ -179,7 +179,7 @@ void GraphNode::_resort() {
 			continue;
 		}
 
-		Size2i size = child->get_combined_minimum_size() + (slot_table[i].draw_stylebox ? sb_slot->get_minimum_size() : Size2());
+		Size2i size = child->get_combined_minimum_size() + (slot_table[i].draw_style_box ? sb_slot->get_minimum_size() : Size2());
 
 		stretch_min += size.height;
 
@@ -274,8 +274,8 @@ void GraphNode::_resort() {
 		}
 
 		int height = to_y_pos - from_y_pos;
-		float margin = sb_panel->get_margin(SIDE_LEFT) + (slot_table[i].draw_stylebox ? sb_slot->get_margin(SIDE_LEFT) : 0);
-		float final_width = width - (slot_table[i].draw_stylebox ? sb_slot->get_minimum_size().x : 0);
+		float margin = sb_panel->get_margin(SIDE_LEFT) + (slot_table[i].draw_style_box ? sb_slot->get_margin(SIDE_LEFT) : 0);
+		float final_width = width - (slot_table[i].draw_style_box ? sb_slot->get_minimum_size().x : 0);
 		Rect2 rect(margin, from_y_pos, final_width, height);
 		fit_child_in_rect(child, rect);
 
@@ -357,7 +357,7 @@ void GraphNode::_notification(int p_what) {
 					}
 
 					// Draw slot stylebox.
-					if (slot.draw_stylebox) {
+					if (slot.draw_style_box) {
 						Control *child = Object::cast_to<Control>(get_child(E.key, false));
 						if (!child || !child->is_visible_in_tree()) {
 							continue;
@@ -379,7 +379,7 @@ void GraphNode::_notification(int p_what) {
 	}
 }
 
-void GraphNode::set_slot(int p_slot_index, bool p_enable_left, int p_type_left, const Color &p_color_left, bool p_enable_right, int p_type_right, const Color &p_color_right, const Ref<Texture2D> &p_custom_left, const Ref<Texture2D> &p_custom_right, bool p_draw_stylebox) {
+void GraphNode::set_slot(int p_slot_index, bool p_enable_left, int p_type_left, const Color &p_color_left, bool p_enable_right, int p_type_right, const Color &p_color_right, const Ref<Texture2D> &p_custom_left, const Ref<Texture2D> &p_custom_right, bool p_draw_style_box) {
 	ERR_FAIL_COND_MSG(p_slot_index < 0, vformat("Cannot set slot with index (%d) lesser than zero.", p_slot_index));
 
 	if (!p_enable_left && p_type_left == 0 && p_color_left == Color(1, 1, 1, 1) &&
@@ -398,7 +398,7 @@ void GraphNode::set_slot(int p_slot_index, bool p_enable_left, int p_type_left, 
 	slot.color_right = p_color_right;
 	slot.custom_port_icon_left = p_custom_left;
 	slot.custom_port_icon_right = p_custom_right;
-	slot.draw_stylebox = p_draw_stylebox;
+	slot.draw_style_box = p_draw_style_box;
 	slot_table[p_slot_index] = slot;
 	queue_redraw();
 	port_pos_dirty = true;
@@ -590,13 +590,13 @@ bool GraphNode::is_slot_draw_style_box(int p_slot_index) const {
 	if (!slot_table.has(p_slot_index)) {
 		return false;
 	}
-	return slot_table[p_slot_index].draw_stylebox;
+	return slot_table[p_slot_index].draw_style_box;
 }
 
-void GraphNode::set_slot_draw_stylebox(int p_slot_index, bool p_enable) {
-	ERR_FAIL_COND_MSG(p_slot_index < 0, vformat("Cannot set draw_stylebox for the slot with p_index (%d) lesser than zero.", p_slot_index));
+void GraphNode::set_slot_draw_style_box(int p_slot_index, bool p_enable) {
+	ERR_FAIL_COND_MSG(p_slot_index < 0, vformat("Cannot set draw_style_box for the slot with p_index (%d) lesser than zero.", p_slot_index));
 
-	slot_table[p_slot_index].draw_stylebox = p_enable;
+	slot_table[p_slot_index].draw_style_box = p_enable;
 	queue_redraw();
 	port_pos_dirty = true;
 
@@ -628,7 +628,7 @@ Size2 GraphNode::get_minimum_size() const {
 		Size2i size = child->get_combined_minimum_size();
 		size.width += sb_panel->get_minimum_size().width;
 		if (slot_table.has(i)) {
-			size += slot_table[i].draw_stylebox ? sb_slot->get_minimum_size() : Size2();
+			size += slot_table[i].draw_style_box ? sb_slot->get_minimum_size() : Size2();
 		}
 
 		minsize.height += size.height;
@@ -835,7 +835,7 @@ void GraphNode::_bind_methods() {
 
 	ClassDB::bind_method(D_METHOD("get_titlebar_hbox"), &GraphNode::get_titlebar_hbox);
 
-	ClassDB::bind_method(D_METHOD("set_slot", "slot_index", "enable_left_port", "type_left", "color_left", "enable_right_port", "type_right", "color_right", "custom_icon_left", "custom_icon_right", "draw_stylebox"), &GraphNode::set_slot, DEFVAL(Ref<Texture2D>()), DEFVAL(Ref<Texture2D>()), DEFVAL(true));
+	ClassDB::bind_method(D_METHOD("set_slot", "slot_index", "enable_left_port", "type_left", "color_left", "enable_right_port", "type_right", "color_right", "custom_icon_left", "custom_icon_right", "draw_style_box"), &GraphNode::set_slot, DEFVAL(Ref<Texture2D>()), DEFVAL(Ref<Texture2D>()), DEFVAL(true));
 	ClassDB::bind_method(D_METHOD("clear_slot", "slot_index"), &GraphNode::clear_slot);
 	ClassDB::bind_method(D_METHOD("clear_all_slots"), &GraphNode::clear_all_slots);
 
@@ -864,7 +864,7 @@ void GraphNode::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_slot_custom_icon_right", "slot_index"), &GraphNode::get_slot_custom_icon_right);
 
 	ClassDB::bind_method(D_METHOD("is_slot_draw_style_box", "slot_index"), &GraphNode::is_slot_draw_style_box);
-	ClassDB::bind_method(D_METHOD("set_slot_draw_stylebox", "slot_index", "enable"), &GraphNode::set_slot_draw_stylebox);
+	ClassDB::bind_method(D_METHOD("set_slot_draw_style_box", "slot_index", "enable"), &GraphNode::set_slot_draw_style_box);
 
 	ClassDB::bind_method(D_METHOD("set_ignore_invalid_connection_type", "ignore"), &GraphNode::set_ignore_invalid_connection_type);
 	ClassDB::bind_method(D_METHOD("is_ignoring_valid_connection_type"), &GraphNode::is_ignoring_valid_connection_type);
