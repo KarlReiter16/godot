@@ -355,7 +355,7 @@ void SpinBox::_notification(int p_what) {
 			Size2i size = get_size();
 
 			Ref<StyleBox> up_style_box = theme_cache.up_base_stylebox;
-			Ref<StyleBox> down_stylebox = theme_cache.down_base_stylebox;
+			Ref<StyleBox> down_style_box = theme_cache.down_base_stylebox;
 			Ref<Texture2D> up_icon = theme_cache.up_icon;
 			Ref<Texture2D> down_icon = theme_cache.down_icon;
 			Color up_icon_modulate = theme_cache.up_icon_modulate;
@@ -378,15 +378,15 @@ void SpinBox::_notification(int p_what) {
 			}
 
 			if (state_cache.down_button_disabled || is_fully_disabled) {
-				down_stylebox = theme_cache.down_disabled_stylebox;
+				down_style_box = theme_cache.down_disabled_stylebox;
 				down_icon = theme_cache.down_disabled_icon;
 				down_icon_modulate = theme_cache.down_disabled_icon_modulate;
 			} else if (state_cache.down_button_pressed && !drag.enabled) {
-				down_stylebox = theme_cache.down_pressed_stylebox;
+				down_style_box = theme_cache.down_pressed_stylebox;
 				down_icon = theme_cache.down_pressed_icon;
 				down_icon_modulate = theme_cache.down_pressed_icon_modulate;
 			} else if (state_cache.down_button_hovered && !drag.enabled) {
-				down_stylebox = theme_cache.down_hover_stylebox;
+				down_style_box = theme_cache.down_hover_stylebox;
 				down_icon = theme_cache.down_hover_icon;
 				down_icon_modulate = theme_cache.down_hover_icon_modulate;
 			}
@@ -406,7 +406,7 @@ void SpinBox::_notification(int p_what) {
 
 			// Draw buttons.
 			draw_style_box(up_style_box, Rect2(sizing_cache.buttons_left, 0, sizing_cache.buttons_width, sizing_cache.button_up_height));
-			draw_style_box(down_stylebox, Rect2(sizing_cache.buttons_left, sizing_cache.second_button_top, sizing_cache.buttons_width, sizing_cache.button_down_height));
+			draw_style_box(down_style_box, Rect2(sizing_cache.buttons_left, sizing_cache.second_button_top, sizing_cache.buttons_width, sizing_cache.button_down_height));
 
 			// Draw arrows.
 			theme_cache.updown_icon->draw(ci, Point2i(updown_icon_left, updown_icon_top));
