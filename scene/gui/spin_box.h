@@ -107,7 +107,7 @@ class SpinBox : public Range {
 		Ref<StyleBox> up_hover_style_box;
 		Ref<StyleBox> up_pressed_style_box;
 		Ref<StyleBox> up_disabled_style_box;
-		Ref<StyleBox> down_base_stylebox;
+		Ref<StyleBox> down_base_style_box;
 		Ref<StyleBox> down_hover_stylebox;
 		Ref<StyleBox> down_pressed_stylebox;
 		Ref<StyleBox> down_disabled_stylebox;

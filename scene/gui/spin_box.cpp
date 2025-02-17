@@ -355,7 +355,7 @@ void SpinBox::_notification(int p_what) {
 			Size2i size = get_size();
 
 			Ref<StyleBox> up_style_box = theme_cache.up_base_style_box;
-			Ref<StyleBox> down_style_box = theme_cache.down_base_stylebox;
+			Ref<StyleBox> down_style_box = theme_cache.down_base_style_box;
 			Ref<Texture2D> up_icon = theme_cache.up_icon;
 			Ref<Texture2D> down_icon = theme_cache.down_icon;
 			Color up_icon_modulate = theme_cache.up_icon_modulate;
@@ -603,7 +603,7 @@ void SpinBox::_bind_methods() {
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, up_hover_style_box, "up_background_hovered");
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, up_pressed_style_box, "up_background_pressed");
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, up_disabled_style_box, "up_background_disabled");
-	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, down_base_stylebox, "down_background");
+	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, down_base_style_box, "down_background");
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, down_hover_stylebox, "down_background_hovered");
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, down_pressed_stylebox, "down_background_pressed");
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, down_disabled_stylebox, "down_background_disabled");
