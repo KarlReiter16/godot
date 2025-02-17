@@ -1459,7 +1459,7 @@ void ThemeItemEditorDialog::_update_edit_item_tree(String p_item_type) {
 
 	{ // Styleboxes.
 		names.clear();
-		edited_theme->get_stylebox_list(p_item_type, &names);
+		edited_theme->get_style_box_list(p_item_type, &names);
 
 		if (names.size() > 0) {
 			TreeItem *stylebox_root = edit_items_tree->create_item(root);
@@ -1557,7 +1557,7 @@ void ThemeItemEditorDialog::_add_theme_item(Theme::DataType p_data_type, String 
 			ur->add_do_method(*edited_theme, "set_style_box", p_item_name, p_item_type, Ref<StyleBox>());
 			ur->add_undo_method(*edited_theme, "clear_style_box", p_item_name, p_item_type);
 
-			if (theme_type_editor->is_stylebox_pinned(edited_theme->get_stylebox(p_item_name, p_item_type))) {
+			if (theme_type_editor->is_stylebox_pinned(edited_theme->get_style_box(p_item_name, p_item_type))) {
 				ur->add_undo_method(theme_type_editor, "_unpin_leading_stylebox");
 			}
 			break;
@@ -1620,9 +1620,9 @@ void ThemeItemEditorDialog::_remove_data_type_items(Theme::DataType p_data_type,
 	for (const StringName &E : names) {
 		new_snapshot->clear_theme_item(p_data_type, E, edited_item_type);
 
-		if (p_data_type == Theme::DATA_TYPE_STYLEBOX && theme_type_editor->is_stylebox_pinned(edited_theme->get_stylebox(E, p_item_type))) {
+		if (p_data_type == Theme::DATA_TYPE_STYLEBOX && theme_type_editor->is_stylebox_pinned(edited_theme->get_style_box(E, p_item_type))) {
 			ur->add_do_method(theme_type_editor, "_unpin_leading_stylebox");
-			ur->add_undo_method(theme_type_editor, "_pin_leading_stylebox", E, edited_theme->get_stylebox(E, p_item_type));
+			ur->add_undo_method(theme_type_editor, "_pin_leading_stylebox", E, edited_theme->get_style_box(E, p_item_type));
 		}
 	}
 
@@ -1654,9 +1654,9 @@ void ThemeItemEditorDialog::_remove_class_items() {
 			if (new_snapshot->has_theme_item_nocheck(data_type, E, edited_item_type)) {
 				new_snapshot->clear_theme_item(data_type, E, edited_item_type);
 
-				if (dt == Theme::DATA_TYPE_STYLEBOX && theme_type_editor->is_stylebox_pinned(edited_theme->get_stylebox(E, edited_item_type))) {
+				if (dt == Theme::DATA_TYPE_STYLEBOX && theme_type_editor->is_stylebox_pinned(edited_theme->get_style_box(E, edited_item_type))) {
 					ur->add_do_method(theme_type_editor, "_unpin_leading_stylebox");
-					ur->add_undo_method(theme_type_editor, "_pin_leading_stylebox", E, edited_theme->get_stylebox(E, edited_item_type));
+					ur->add_undo_method(theme_type_editor, "_pin_leading_stylebox", E, edited_theme->get_style_box(E, edited_item_type));
 				}
 			}
 		}
@@ -1690,9 +1690,9 @@ void ThemeItemEditorDialog::_remove_custom_items() {
 			if (!ThemeDB::get_singleton()->get_default_theme()->has_theme_item_nocheck(data_type, E, edited_item_type)) {
 				new_snapshot->clear_theme_item(data_type, E, edited_item_type);
 
-				if (dt == Theme::DATA_TYPE_STYLEBOX && theme_type_editor->is_stylebox_pinned(edited_theme->get_stylebox(E, edited_item_type))) {
+				if (dt == Theme::DATA_TYPE_STYLEBOX && theme_type_editor->is_stylebox_pinned(edited_theme->get_style_box(E, edited_item_type))) {
 					ur->add_do_method(theme_type_editor, "_unpin_leading_stylebox");
-					ur->add_undo_method(theme_type_editor, "_pin_leading_stylebox", E, edited_theme->get_stylebox(E, edited_item_type));
+					ur->add_undo_method(theme_type_editor, "_pin_leading_stylebox", E, edited_theme->get_style_box(E, edited_item_type));
 				}
 			}
 		}
@@ -1725,9 +1725,9 @@ void ThemeItemEditorDialog::_remove_all_items() {
 		for (const StringName &E : names) {
 			new_snapshot->clear_theme_item(data_type, E, edited_item_type);
 
-			if (dt == Theme::DATA_TYPE_STYLEBOX && theme_type_editor->is_stylebox_pinned(edited_theme->get_stylebox(E, edited_item_type))) {
+			if (dt == Theme::DATA_TYPE_STYLEBOX && theme_type_editor->is_stylebox_pinned(edited_theme->get_style_box(E, edited_item_type))) {
 				ur->add_do_method(theme_type_editor, "_unpin_leading_stylebox");
-				ur->add_undo_method(theme_type_editor, "_pin_leading_stylebox", E, edited_theme->get_stylebox(E, edited_item_type));
+				ur->add_undo_method(theme_type_editor, "_pin_leading_stylebox", E, edited_theme->get_style_box(E, edited_item_type));
 			}
 		}
 	}
@@ -2758,7 +2758,7 @@ void ThemeTypeEditor::_update_type_items() {
 
 			if (E.value) {
 				if (edited_theme->has_style_box(E.key, edited_type)) {
-					item_editor->set_edited_resource(edited_theme->get_stylebox(E.key, edited_type));
+					item_editor->set_edited_resource(edited_theme->get_style_box(E.key, edited_type));
 				} else {
 					item_editor->set_edited_resource(Ref<Resource>());
 				}
@@ -2774,7 +2774,7 @@ void ThemeTypeEditor::_update_type_items() {
 				pin_leader_button->connect(SceneStringName(pressed), callable_mp(this, &ThemeTypeEditor::_on_pin_leader_button_pressed).bind(item_editor, E.key));
 			} else {
 				if (ThemeDB::get_singleton()->get_default_theme()->has_style_box(E.key, edited_type)) {
-					item_editor->set_edited_resource(ThemeDB::get_singleton()->get_default_theme()->get_stylebox(E.key, edited_type));
+					item_editor->set_edited_resource(ThemeDB::get_singleton()->get_default_theme()->get_style_box(E.key, edited_type));
 				} else {
 					item_editor->set_edited_resource(Ref<Resource>());
 				}
@@ -2838,10 +2838,10 @@ void ThemeTypeEditor::_add_default_type_items() {
 	}
 	{
 		names.clear();
-		ThemeDB::get_singleton()->get_default_theme()->get_stylebox_list(default_type, &names);
+		ThemeDB::get_singleton()->get_default_theme()->get_style_box_list(default_type, &names);
 		for (const StringName &E : names) {
 			if (!new_snapshot->has_style_box(E, edited_type)) {
-				new_snapshot->set_style_box(E, edited_type, ThemeDB::get_singleton()->get_default_theme()->get_stylebox(E, edited_type));
+				new_snapshot->set_style_box(E, edited_type, ThemeDB::get_singleton()->get_default_theme()->get_style_box(E, edited_type));
 			}
 		}
 	}
@@ -3027,7 +3027,7 @@ void ThemeTypeEditor::_item_remove_cbk(int p_data_type, String p_item_name) {
 			}
 		} break;
 		case Theme::DATA_TYPE_STYLEBOX: {
-			Ref<StyleBox> sb = edited_theme->get_stylebox(p_item_name, edited_type);
+			Ref<StyleBox> sb = edited_theme->get_style_box(p_item_name, edited_type);
 			ur->add_do_method(*edited_theme, "clear_style_box", p_item_name, edited_type);
 			if (edited_theme->has_style_box(p_item_name, edited_type)) {
 				ur->add_undo_method(*edited_theme, "set_style_box", p_item_name, edited_type, sb);
@@ -3195,7 +3195,7 @@ void ThemeTypeEditor::_stylebox_item_changed(Ref<StyleBox> p_value, String p_ite
 
 	ur->add_do_method(*edited_theme, "set_style_box", p_item_name, edited_type, p_value.is_valid() ? p_value : Ref<StyleBox>());
 	if (edited_theme->has_style_box(p_item_name, edited_type)) {
-		ur->add_undo_method(*edited_theme, "set_style_box", p_item_name, edited_type, edited_theme->get_stylebox(p_item_name, edited_type));
+		ur->add_undo_method(*edited_theme, "set_style_box", p_item_name, edited_type, edited_theme->get_style_box(p_item_name, edited_type));
 	} else {
 		ur->add_undo_method(*edited_theme, "set_style_box", p_item_name, edited_type, Ref<StyleBox>());
 	}
@@ -3215,7 +3215,7 @@ void ThemeTypeEditor::_change_pinned_stylebox() {
 			leading_stylebox.stylebox->disconnect_changed(callable_mp(this, &ThemeTypeEditor::_update_stylebox_from_leading));
 		}
 
-		Ref<StyleBox> new_stylebox = edited_theme->get_stylebox(leading_stylebox.item_name, edited_type);
+		Ref<StyleBox> new_stylebox = edited_theme->get_style_box(leading_stylebox.item_name, edited_type);
 		leading_stylebox.stylebox = new_stylebox;
 		leading_stylebox.ref_stylebox = (new_stylebox.is_valid() ? new_stylebox->duplicate() : Ref<Resource>());
 
@@ -3295,10 +3295,10 @@ void ThemeTypeEditor::_update_stylebox_from_leading() {
 	edited_theme->_freeze_change_propagation();
 
 	List<StringName> names;
-	edited_theme->get_stylebox_list(edited_type, &names);
+	edited_theme->get_style_box_list(edited_type, &names);
 	List<Ref<StyleBox>> styleboxes;
 	for (const StringName &E : names) {
-		Ref<StyleBox> sb = edited_theme->get_stylebox(E, edited_type);
+		Ref<StyleBox> sb = edited_theme->get_style_box(E, edited_type);
 
 		// Avoid itself, stylebox can be shared between items.
 		if (sb == leading_stylebox.stylebox) {

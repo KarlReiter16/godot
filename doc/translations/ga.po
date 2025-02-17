@@ -145899,11 +145899,11 @@ msgstr ""
 
 msgid ""
 "Returns a list of names for [StyleBox] properties defined with [param "
-"theme_type]. Use [method get_stylebox_type_list] to get a list of possible "
+"theme_type]. Use [method get_style_box_type_list] to get a list of possible "
 "theme type names."
 msgstr ""
 "Seoltar ar ais liosta ainmneacha le haghaidh airíonna [StyleBox] atá "
-"sainmhínithe le [param theme_type]. Úsáid [method get_stylebox_type_list] "
+"sainmhínithe le [param theme_type]. Úsáid [method get_style_box_type_list] "
 "chun liosta ainmneacha cineálacha téamaí féideartha a fháil."
 
 msgid ""

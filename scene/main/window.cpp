@@ -221,7 +221,7 @@ void Window::_get_property_list(List<PropertyInfo> *p_list) const {
 	}
 	{
 		List<StringName> names;
-		default_theme->get_stylebox_list(get_class_name(), &names);
+		default_theme->get_style_box_list(get_class_name(), &names);
 		for (const StringName &E : names) {
 			uint32_t usage = PROPERTY_USAGE_EDITOR | PROPERTY_USAGE_CHECKABLE;
 			if (theme_style_override.has(E)) {

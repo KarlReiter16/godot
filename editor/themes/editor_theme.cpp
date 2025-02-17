@@ -107,8 +107,8 @@ Ref<Texture2D> EditorTheme::get_icon(const StringName &p_name, const StringName 
 	}
 }
 
-// Keep in sync with Theme::get_stylebox.
-Ref<StyleBox> EditorTheme::get_stylebox(const StringName &p_name, const StringName &p_theme_type) const {
+// Keep in sync with Theme::get_style_box.
+Ref<StyleBox> EditorTheme::get_style_box(const StringName &p_name, const StringName &p_theme_type) const {
 	if (style_map.has(p_theme_type) && style_map[p_theme_type].has(p_name) && style_map[p_theme_type][p_name].is_valid()) {
 		return style_map[p_theme_type][p_name];
 	} else {

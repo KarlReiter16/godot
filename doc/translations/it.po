@@ -131361,11 +131361,11 @@ msgstr ""
 
 msgid ""
 "Returns a list of names for [StyleBox] properties defined with [param "
-"theme_type]. Use [method get_stylebox_type_list] to get a list of possible "
+"theme_type]. Use [method get_style_box_type_list] to get a list of possible "
 "theme type names."
 msgstr ""
 "Restituisce una lista di nomi per le proprietà [StyleBox] definite con il "
-"tipo del tema [param theme_type]. Usa [method get_stylebox_type_list] per "
+"tipo del tema [param theme_type]. Usa [method get_style_box_type_list] per "
 "ottenere una lista di nomi disponibili per i tipi del tema."
 
 msgid ""

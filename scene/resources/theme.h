@@ -71,8 +71,8 @@ private:
 
 	Vector<String> _get_icon_list(const String &p_theme_type) const;
 	Vector<String> _get_icon_type_list() const;
-	Vector<String> _get_stylebox_list(const String &p_theme_type) const;
-	Vector<String> _get_stylebox_type_list() const;
+	Vector<String> _get_style_box_list(const String &p_theme_type) const;
+	Vector<String> _get_style_box_type_list() const;
 	Vector<String> _get_font_list(const String &p_theme_type) const;
 	Vector<String> _get_font_type_list() const;
 	Vector<String> _get_font_size_list(const String &p_theme_type) const;
@@ -142,15 +142,15 @@ public:
 	void get_icon_type_list(List<StringName> *p_list) const;
 
 	void set_style_box(const StringName &p_name, const StringName &p_theme_type, const Ref<StyleBox> &p_style);
-	virtual Ref<StyleBox> get_stylebox(const StringName &p_name, const StringName &p_theme_type) const;
+	virtual Ref<StyleBox> get_style_box(const StringName &p_name, const StringName &p_theme_type) const;
 	bool has_style_box(const StringName &p_name, const StringName &p_theme_type) const;
 	bool has_style_box_nocheck(const StringName &p_name, const StringName &p_theme_type) const;
 	void rename_stylebox(const StringName &p_old_name, const StringName &p_name, const StringName &p_theme_type);
 	void clear_style_box(const StringName &p_name, const StringName &p_theme_type);
-	void get_stylebox_list(const StringName &p_theme_type, List<StringName> *p_list) const;
+	void get_style_box_list(const StringName &p_theme_type, List<StringName> *p_list) const;
 	void add_stylebox_type(const StringName &p_theme_type);
 	void remove_stylebox_type(const StringName &p_theme_type);
-	void get_stylebox_type_list(List<StringName> *p_list) const;
+	void get_style_box_type_list(List<StringName> *p_list) const;
 
 	void set_font(const StringName &p_name, const StringName &p_theme_type, const Ref<Font> &p_font);
 	virtual Ref<Font> get_font(const StringName &p_name, const StringName &p_theme_type) const;

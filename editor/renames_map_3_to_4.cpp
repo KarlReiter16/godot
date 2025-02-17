@@ -179,7 +179,7 @@ const char *RenamesMap3To4::gdscript_function_renames[][2] = {
 	// { "get_points", "get_points_id" }, // AStar -- Breaks Line2D, ConvexPolygonShape.
 	// { "get_process_mode", "get_process_callback" }, // ClippedCamera3D -- Breaks Node, Sky.
 	// { "get_render_info", "get_rendering_info" }, // RenderingServer -- Breaks Viewport.
-	// { "get_stylebox", "get_theme_style_box" }, // Control -- Would rename the method in Theme as well, skipping.
+	// { "get_style_box", "get_theme_style_box" }, // Control -- Would rename the method in Theme as well, skipping.
 	// { "get_type", "get_tracker_type" }, // XRPositionalTracker -- Breaks GLTFAccessor, GLTFLight.
 	// { "get_v_offset", "get_drag_vertical_offset" }, // Camera2D -- Breaks PathFollow, Camera.
 	// { "get_v_scroll", "get_v_scroll_bar" }, // ItemList -- Breaks TextView.
@@ -380,7 +380,7 @@ const char *RenamesMap3To4::gdscript_function_renames[][2] = {
 	{ "get_space_override_mode", "get_gravity_space_override_mode" }, // Area2D
 	{ "get_spatial_node", "get_node_3d" }, // EditorNode3DGizmo
 	{ "get_speed", "get_velocity" }, // InputEventMouseMotion
-	{ "get_stylebox_types", "get_stylebox_type_list" }, // Theme
+	{ "get_style_box_types", "get_style_box_type_list" }, // Theme
 	{ "get_surface_material", "get_surface_override_material" }, // MeshInstance3D -- Breaks ImporterMesh.
 	{ "get_surface_material_count", "get_surface_override_material_count" }, // MeshInstance3D
 	{ "get_tab_disabled", "is_tab_disabled" }, // Tab

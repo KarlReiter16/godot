@@ -1873,7 +1873,7 @@ void EditorThemeManager::_populate_editor_styles(const Ref<EditorTheme> &p_theme
 
 		// Game view.
 		p_theme->set_type_variation("GamePanel", "Panel");
-		Ref<StyleBoxFlat> game_panel = p_theme->get_stylebox(SceneStringName(panel), SNAME("Panel"))->duplicate();
+		Ref<StyleBoxFlat> game_panel = p_theme->get_style_box(SceneStringName(panel), SNAME("Panel"))->duplicate();
 		game_panel->set_corner_radius_all(0);
 		p_theme->set_style_box(SceneStringName(panel), "GamePanel", game_panel);
 
@@ -2166,7 +2166,7 @@ void EditorThemeManager::_populate_editor_styles(const Ref<EditorTheme> &p_theme
 			// Can be used on tabs against the base color background (e.g. nested tabs).
 			p_theme->set_type_variation("TabContainerOdd", "TabContainer");
 
-			Ref<StyleBoxFlat> style_tab_selected_odd = p_theme->get_stylebox(SNAME("tab_selected"), SNAME("TabContainer"))->duplicate();
+			Ref<StyleBoxFlat> style_tab_selected_odd = p_theme->get_style_box(SNAME("tab_selected"), SNAME("TabContainer"))->duplicate();
 			style_tab_selected_odd->set_bg_color(p_config.disabled_bg_color);
 			p_theme->set_style_box("tab_selected", "TabContainerOdd", style_tab_selected_odd);
 
@@ -2461,8 +2461,8 @@ void EditorThemeManager::_populate_editor_styles(const Ref<EditorTheme> &p_theme
 		// This pattern of get_font()->get_height(get_font_size()) is used quite a lot and is very verbose.
 		// FIXME: Introduce Theme::get_font_height() / Control::get_theme_font_height() / Window::get_theme_font_height().
 		const int offset_i1 = p_theme->get_font(SNAME("tab_selected"), SNAME("TabContainer"))->get_height(p_theme->get_font_size(SNAME("tab_selected"), SNAME("TabContainer")));
-		const int offset_i2 = p_theme->get_stylebox(SNAME("tab_selected"), SNAME("TabContainer"))->get_minimum_size().height;
-		const int offset_i3 = p_theme->get_stylebox(SceneStringName(panel), SNAME("TabContainer"))->get_content_margin(SIDE_TOP);
+		const int offset_i2 = p_theme->get_style_box(SNAME("tab_selected"), SNAME("TabContainer"))->get_minimum_size().height;
+		const int offset_i3 = p_theme->get_style_box(SceneStringName(panel), SNAME("TabContainer"))->get_content_margin(SIDE_TOP);
 		const int invisible_top_offset = offset_i1 + offset_i2 + offset_i3;
 
 		Ref<StyleBoxFlat> invisible_top_panel_style = p_config.content_panel_style->duplicate();
@@ -2495,11 +2495,11 @@ void EditorThemeManager::_populate_editor_styles(const Ref<EditorTheme> &p_theme
 			Ref<StyleBoxFlat> theme_preview_picker_label_sb = make_flat_stylebox(theme_preview_picker_label_bg_color, 4.0, 1.0, 4.0, 3.0);
 			p_theme->set_style_box("preview_picker_label", "ThemeEditor", theme_preview_picker_label_sb);
 
-			Ref<StyleBoxFlat> style_theme_preview_tab = p_theme->get_stylebox(SNAME("tab_selected"), SNAME("TabContainerOdd"))->duplicate();
+			Ref<StyleBoxFlat> style_theme_preview_tab = p_theme->get_style_box(SNAME("tab_selected"), SNAME("TabContainerOdd"))->duplicate();
 			style_theme_preview_tab->set_expand_margin(SIDE_BOTTOM, 5 * EDSCALE);
 			p_theme->set_style_box("ThemeEditorPreviewFG", EditorStringName(EditorStyles), style_theme_preview_tab);
 
-			Ref<StyleBoxFlat> style_theme_preview_bg_tab = p_theme->get_stylebox(SNAME("tab_unselected"), SNAME("TabContainer"))->duplicate();
+			Ref<StyleBoxFlat> style_theme_preview_bg_tab = p_theme->get_style_box(SNAME("tab_unselected"), SNAME("TabContainer"))->duplicate();
 			style_theme_preview_bg_tab->set_expand_margin(SIDE_BOTTOM, 2 * EDSCALE);
 			p_theme->set_style_box("ThemeEditorPreviewBG", EditorStringName(EditorStyles), style_theme_preview_bg_tab);
 		}
@@ -2757,7 +2757,7 @@ void EditorThemeManager::_populate_visual_shader_styles(const Ref<EditorTheme> &
 		ed_settings->set_initial_value("editors/visual_editors/connection_colors/sampler_color", Color(1.0, 1.0, 0.0), true);
 
 		// Node category colors (used for the node headers)
-		Ref<StyleBoxFlat> gn_panel_style = p_theme->get_stylebox(SceneStringName(panel), "GraphNode");
+		Ref<StyleBoxFlat> gn_panel_style = p_theme->get_style_box(SceneStringName(panel), "GraphNode");
 		Color gn_bg_color = gn_panel_style->get_bg_color();
 		ed_settings->set_initial_value("editors/visual_editors/category_colors/output_color", gn_bg_color, true);
 		ed_settings->set_initial_value("editors/visual_editors/category_colors/color_color", gn_bg_color, true);

@@ -92951,11 +92951,11 @@ msgstr ""
 
 msgid ""
 "Returns a list of names for [StyleBox] properties defined with [param "
-"theme_type]. Use [method get_stylebox_type_list] to get a list of possible "
+"theme_type]. Use [method get_style_box_type_list] to get a list of possible "
 "theme type names."
 msgstr ""
 "返回為 [param theme_type] 型別定義的 [StyleBox] 屬性的名稱列表。請使用 "
-"[method get_stylebox_type_list] 獲取可能的主題型別名稱。"
+"[method get_style_box_type_list] 獲取可能的主題型別名稱。"
 
 msgid ""
 "Returns a list of all unique theme type names for [StyleBox] properties. Use "

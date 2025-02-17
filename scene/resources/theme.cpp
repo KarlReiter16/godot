@@ -83,7 +83,7 @@ bool Theme::_get(const StringName &p_name, Variant &r_ret) const {
 			if (!has_style_box(prop_name, theme_type)) {
 				r_ret = Ref<StyleBox>();
 			} else {
-				r_ret = get_stylebox(prop_name, theme_type);
+				r_ret = get_style_box(prop_name, theme_type);
 			}
 		} else if (type == "fonts") {
 			if (!has_font(prop_name, theme_type)) {
@@ -389,7 +389,7 @@ void Theme::set_style_box(const StringName &p_name, const StringName &p_theme_ty
 	_emit_theme_changed(!existing);
 }
 
-Ref<StyleBox> Theme::get_stylebox(const StringName &p_name, const StringName &p_theme_type) const {
+Ref<StyleBox> Theme::get_style_box(const StringName &p_name, const StringName &p_theme_type) const {
 	if (style_map.has(p_theme_type) && style_map[p_theme_type].has(p_name) && style_map[p_theme_type][p_name].is_valid()) {
 		return style_map[p_theme_type][p_name];
 	} else {
@@ -431,7 +431,7 @@ void Theme::clear_style_box(const StringName &p_name, const StringName &p_theme_
 	_emit_theme_changed(true);
 }
 
-void Theme::get_stylebox_list(const StringName &p_theme_type, List<StringName> *p_list) const {
+void Theme::get_style_box_list(const StringName &p_theme_type, List<StringName> *p_list) const {
 	ERR_FAIL_NULL(p_list);
 
 	if (!style_map.has(p_theme_type)) {
@@ -471,7 +471,7 @@ void Theme::remove_stylebox_type(const StringName &p_theme_type) {
 	_unfreeze_and_propagate_changes();
 }
 
-void Theme::get_stylebox_type_list(List<StringName> *p_list) const {
+void Theme::get_style_box_type_list(List<StringName> *p_list) const {
 	ERR_FAIL_NULL(p_list);
 
 	for (const KeyValue<StringName, ThemeStyleMap> &E : style_map) {
@@ -916,7 +916,7 @@ Variant Theme::get_theme_item(DataType p_data_type, const StringName &p_name, co
 		case DATA_TYPE_ICON:
 			return get_icon(p_name, p_theme_type);
 		case DATA_TYPE_STYLEBOX:
-			return get_stylebox(p_name, p_theme_type);
+			return get_style_box(p_name, p_theme_type);
 		case DATA_TYPE_MAX:
 			break; // Can't happen, but silences warning.
 	}
@@ -1042,7 +1042,7 @@ void Theme::get_theme_item_list(DataType p_data_type, const StringName &p_theme_
 			get_icon_list(p_theme_type, p_list);
 			break;
 		case DATA_TYPE_STYLEBOX:
-			get_stylebox_list(p_theme_type, p_list);
+			get_style_box_list(p_theme_type, p_list);
 			break;
 		case DATA_TYPE_MAX:
 			break; // Can't happen, but silences warning.
@@ -1117,7 +1117,7 @@ void Theme::get_theme_item_type_list(DataType p_data_type, List<StringName> *p_l
 			get_icon_type_list(p_list);
 			break;
 		case DATA_TYPE_STYLEBOX:
-			get_stylebox_type_list(p_list);
+			get_style_box_type_list(p_list);
 			break;
 		case DATA_TYPE_MAX:
 			break; // Can't happen, but silences warning.
@@ -1315,11 +1315,11 @@ Vector<String> Theme::_get_icon_type_list() const {
 	return ilret;
 }
 
-Vector<String> Theme::_get_stylebox_list(const String &p_theme_type) const {
+Vector<String> Theme::_get_style_box_list(const String &p_theme_type) const {
 	Vector<String> ilret;
 	List<StringName> il;
 
-	get_stylebox_list(p_theme_type, &il);
+	get_style_box_list(p_theme_type, &il);
 	ilret.resize(il.size());
 
 	int i = 0;
@@ -1330,11 +1330,11 @@ Vector<String> Theme::_get_stylebox_list(const String &p_theme_type) const {
 	return ilret;
 }
 
-Vector<String> Theme::_get_stylebox_type_list() const {
+Vector<String> Theme::_get_style_box_type_list() const {
 	Vector<String> ilret;
 	List<StringName> il;
 
-	get_stylebox_type_list(&il);
+	get_style_box_type_list(&il);
 	ilret.resize(il.size());
 
 	int i = 0;
@@ -1478,7 +1478,7 @@ Vector<String> Theme::_get_theme_item_list(DataType p_data_type, const String &p
 		case DATA_TYPE_ICON:
 			return _get_icon_list(p_theme_type);
 		case DATA_TYPE_STYLEBOX:
-			return _get_stylebox_list(p_theme_type);
+			return _get_style_box_list(p_theme_type);
 		case DATA_TYPE_MAX:
 			break; // Can't happen, but silences warning.
 	}
@@ -1499,7 +1499,7 @@ Vector<String> Theme::_get_theme_item_type_list(DataType p_data_type) const {
 		case DATA_TYPE_ICON:
 			return _get_icon_type_list();
 		case DATA_TYPE_STYLEBOX:
-			return _get_stylebox_type_list();
+			return _get_style_box_type_list();
 		case DATA_TYPE_MAX:
 			break; // Can't happen, but silences warning.
 	}
@@ -1702,12 +1702,12 @@ void Theme::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_icon_type_list"), &Theme::_get_icon_type_list);
 
 	ClassDB::bind_method(D_METHOD("set_style_box", "name", "theme_type", "texture"), &Theme::set_style_box);
-	ClassDB::bind_method(D_METHOD("get_stylebox", "name", "theme_type"), &Theme::get_stylebox);
+	ClassDB::bind_method(D_METHOD("get_style_box", "name", "theme_type"), &Theme::get_style_box);
 	ClassDB::bind_method(D_METHOD("has_style_box", "name", "theme_type"), &Theme::has_style_box);
 	ClassDB::bind_method(D_METHOD("rename_stylebox", "old_name", "name", "theme_type"), &Theme::rename_stylebox);
 	ClassDB::bind_method(D_METHOD("clear_style_box", "name", "theme_type"), &Theme::clear_style_box);
-	ClassDB::bind_method(D_METHOD("get_stylebox_list", "theme_type"), &Theme::_get_stylebox_list);
-	ClassDB::bind_method(D_METHOD("get_stylebox_type_list"), &Theme::_get_stylebox_type_list);
+	ClassDB::bind_method(D_METHOD("get_style_box_list", "theme_type"), &Theme::_get_style_box_list);
+	ClassDB::bind_method(D_METHOD("get_style_box_type_list"), &Theme::_get_style_box_type_list);
 
 	ClassDB::bind_method(D_METHOD("set_font", "name", "theme_type", "font"), &Theme::set_font);
 	ClassDB::bind_method(D_METHOD("get_font", "name", "theme_type"), &Theme::get_font);
