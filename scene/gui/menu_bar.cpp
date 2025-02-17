@@ -417,7 +417,7 @@ void MenuBar::_draw_menu_item(int p_index) {
 	Rect2 item_rect = _get_menu_item_rect(p_index);
 
 	if (menu_cache[p_index].disabled) {
-		if (rtl && has_theme_stylebox(SNAME("disabled_mirrored"))) {
+		if (rtl && has_theme_style_box(SNAME("disabled_mirrored"))) {
 			style = theme_cache.disabled_mirrored;
 		} else {
 			style = theme_cache.disabled;
@@ -426,8 +426,8 @@ void MenuBar::_draw_menu_item(int p_index) {
 			style->draw(ci, item_rect);
 		}
 		color = theme_cache.font_disabled_color;
-	} else if (hovered && pressed && has_theme_stylebox("hover_pressed")) {
-		if (rtl && has_theme_stylebox(SNAME("hover_pressed_mirrored"))) {
+	} else if (hovered && pressed && has_theme_style_box("hover_pressed")) {
+		if (rtl && has_theme_style_box(SNAME("hover_pressed_mirrored"))) {
 			style = theme_cache.hover_pressed_mirrored;
 		} else {
 			style = theme_cache.hover_pressed;
@@ -439,7 +439,7 @@ void MenuBar::_draw_menu_item(int p_index) {
 			color = theme_cache.font_hover_pressed_color;
 		}
 	} else if (pressed) {
-		if (rtl && has_theme_stylebox(SNAME("pressed_mirrored"))) {
+		if (rtl && has_theme_style_box(SNAME("pressed_mirrored"))) {
 			style = theme_cache.pressed_mirrored;
 		} else {
 			style = theme_cache.pressed;
@@ -453,7 +453,7 @@ void MenuBar::_draw_menu_item(int p_index) {
 			color = theme_cache.font_color;
 		}
 	} else if (hovered) {
-		if (rtl && has_theme_stylebox(SNAME("hover_mirrored"))) {
+		if (rtl && has_theme_style_box(SNAME("hover_mirrored"))) {
 			style = theme_cache.hover_mirrored;
 		} else {
 			style = theme_cache.hover;
@@ -463,7 +463,7 @@ void MenuBar::_draw_menu_item(int p_index) {
 		}
 		color = theme_cache.font_hover_color;
 	} else {
-		if (rtl && has_theme_stylebox(SNAME("normal_mirrored"))) {
+		if (rtl && has_theme_style_box(SNAME("normal_mirrored"))) {
 			style = theme_cache.normal_mirrored;
 		} else {
 			style = theme_cache.normal;

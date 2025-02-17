@@ -52,7 +52,7 @@ void Button::_update_theme_item_cache() {
 	Control::_update_theme_item_cache();
 
 	const bool rtl = is_layout_rtl();
-	if (rtl && has_theme_stylebox(SNAME("normal_mirrored"))) {
+	if (rtl && has_theme_style_box(SNAME("normal_mirrored"))) {
 		theme_cache.max_style_size = theme_cache.normal_mirrored->get_minimum_size();
 		theme_cache.style_margin_left = theme_cache.normal_mirrored->get_margin(SIDE_LEFT);
 		theme_cache.style_margin_right = theme_cache.normal_mirrored->get_margin(SIDE_RIGHT);
@@ -65,8 +65,8 @@ void Button::_update_theme_item_cache() {
 		theme_cache.style_margin_top = theme_cache.normal->get_margin(SIDE_TOP);
 		theme_cache.style_margin_bottom = theme_cache.normal->get_margin(SIDE_BOTTOM);
 	}
-	if (has_theme_stylebox("hover_pressed")) {
-		if (rtl && has_theme_stylebox(SNAME("hover_pressed_mirrored"))) {
+	if (has_theme_style_box("hover_pressed")) {
+		if (rtl && has_theme_style_box(SNAME("hover_pressed_mirrored"))) {
 			theme_cache.max_style_size = theme_cache.max_style_size.max(theme_cache.hover_pressed_mirrored->get_minimum_size());
 			theme_cache.style_margin_left = MAX(theme_cache.style_margin_left, theme_cache.hover_pressed_mirrored->get_margin(SIDE_LEFT));
 			theme_cache.style_margin_right = MAX(theme_cache.style_margin_right, theme_cache.hover_pressed_mirrored->get_margin(SIDE_RIGHT));
@@ -80,7 +80,7 @@ void Button::_update_theme_item_cache() {
 			theme_cache.style_margin_bottom = MAX(theme_cache.style_margin_bottom, theme_cache.hover_pressed->get_margin(SIDE_BOTTOM));
 		}
 	}
-	if (rtl && has_theme_stylebox(SNAME("pressed_mirrored"))) {
+	if (rtl && has_theme_style_box(SNAME("pressed_mirrored"))) {
 		theme_cache.max_style_size = theme_cache.max_style_size.max(theme_cache.pressed_mirrored->get_minimum_size());
 		theme_cache.style_margin_left = MAX(theme_cache.style_margin_left, theme_cache.pressed_mirrored->get_margin(SIDE_LEFT));
 		theme_cache.style_margin_right = MAX(theme_cache.style_margin_right, theme_cache.pressed_mirrored->get_margin(SIDE_RIGHT));
@@ -93,7 +93,7 @@ void Button::_update_theme_item_cache() {
 		theme_cache.style_margin_top = MAX(theme_cache.style_margin_top, theme_cache.pressed->get_margin(SIDE_TOP));
 		theme_cache.style_margin_bottom = MAX(theme_cache.style_margin_bottom, theme_cache.pressed->get_margin(SIDE_BOTTOM));
 	}
-	if (rtl && has_theme_stylebox(SNAME("hover_mirrored"))) {
+	if (rtl && has_theme_style_box(SNAME("hover_mirrored"))) {
 		theme_cache.max_style_size = theme_cache.max_style_size.max(theme_cache.hover_mirrored->get_minimum_size());
 		theme_cache.style_margin_left = MAX(theme_cache.style_margin_left, theme_cache.hover_mirrored->get_margin(SIDE_LEFT));
 		theme_cache.style_margin_right = MAX(theme_cache.style_margin_right, theme_cache.hover_mirrored->get_margin(SIDE_RIGHT));
@@ -106,7 +106,7 @@ void Button::_update_theme_item_cache() {
 		theme_cache.style_margin_top = MAX(theme_cache.style_margin_top, theme_cache.hover->get_margin(SIDE_TOP));
 		theme_cache.style_margin_bottom = MAX(theme_cache.style_margin_bottom, theme_cache.hover->get_margin(SIDE_BOTTOM));
 	}
-	if (rtl && has_theme_stylebox(SNAME("disabled_mirrored"))) {
+	if (rtl && has_theme_style_box(SNAME("disabled_mirrored"))) {
 		theme_cache.max_style_size = theme_cache.max_style_size.max(theme_cache.disabled_mirrored->get_minimum_size());
 		theme_cache.style_margin_left = MAX(theme_cache.style_margin_left, theme_cache.disabled_mirrored->get_margin(SIDE_LEFT));
 		theme_cache.style_margin_right = MAX(theme_cache.style_margin_right, theme_cache.disabled_mirrored->get_margin(SIDE_RIGHT));
@@ -132,7 +132,7 @@ Ref<StyleBox> Button::_get_current_stylebox() const {
 
 	switch (get_draw_mode()) {
 		case DRAW_NORMAL: {
-			if (rtl && has_theme_stylebox(SNAME("normal_mirrored"))) {
+			if (rtl && has_theme_style_box(SNAME("normal_mirrored"))) {
 				stylebox = theme_cache.normal_mirrored;
 			} else {
 				stylebox = theme_cache.normal;
@@ -141,8 +141,8 @@ Ref<StyleBox> Button::_get_current_stylebox() const {
 
 		case DRAW_HOVER_PRESSED: {
 			// Edge case for CheckButton and CheckBox.
-			if (has_theme_stylebox("hover_pressed")) {
-				if (rtl && has_theme_stylebox(SNAME("hover_pressed_mirrored"))) {
+			if (has_theme_style_box("hover_pressed")) {
+				if (rtl && has_theme_style_box(SNAME("hover_pressed_mirrored"))) {
 					stylebox = theme_cache.hover_pressed_mirrored;
 				} else {
 					stylebox = theme_cache.hover_pressed;
@@ -152,7 +152,7 @@ Ref<StyleBox> Button::_get_current_stylebox() const {
 		}
 			[[fallthrough]];
 		case DRAW_PRESSED: {
-			if (rtl && has_theme_stylebox(SNAME("pressed_mirrored"))) {
+			if (rtl && has_theme_style_box(SNAME("pressed_mirrored"))) {
 				stylebox = theme_cache.pressed_mirrored;
 			} else {
 				stylebox = theme_cache.pressed;
@@ -160,7 +160,7 @@ Ref<StyleBox> Button::_get_current_stylebox() const {
 		} break;
 
 		case DRAW_HOVER: {
-			if (rtl && has_theme_stylebox(SNAME("hover_mirrored"))) {
+			if (rtl && has_theme_style_box(SNAME("hover_mirrored"))) {
 				stylebox = theme_cache.hover_mirrored;
 			} else {
 				stylebox = theme_cache.hover;
@@ -168,7 +168,7 @@ Ref<StyleBox> Button::_get_current_stylebox() const {
 		} break;
 
 		case DRAW_DISABLED: {
-			if (rtl && has_theme_stylebox(SNAME("disabled_mirrored"))) {
+			if (rtl && has_theme_style_box(SNAME("disabled_mirrored"))) {
 				stylebox = theme_cache.disabled_mirrored;
 			} else {
 				stylebox = theme_cache.disabled;

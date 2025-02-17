@@ -674,7 +674,7 @@
 				See [method add_theme_icon_override].
 			</description>
 		</method>
-		<method name="has_theme_stylebox" qualifiers="const">
+		<method name="has_theme_style_box" qualifiers="const">
 			<return type="bool" />
 			<param index="0" name="name" type="StringName" />
 			<param index="1" name="theme_type" type="StringName" default="&amp;&quot;&quot;" />
@@ -683,7 +683,7 @@
 				See [method get_theme_color] for details.
 			</description>
 		</method>
-		<method name="has_theme_stylebox_override" qualifiers="const">
+		<method name="has_theme_style_box_override" qualifiers="const">
 			<return type="bool" />
 			<param index="0" name="name" type="StringName" />
 			<description>

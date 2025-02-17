@@ -416,8 +416,8 @@ const char *RenamesMap3To4::gdscript_function_renames[][2] = {
 	{ "has_icon_override", "has_theme_icon_override" }, // Control
 	{ "has_main_screen", "_has_main_screen" }, // EditorPlugin
 	{ "has_network_peer", "has_multiplayer_peer" }, // Multiplayer API
-	{ "has_stylebox", "has_theme_stylebox" }, // Control -- Breaks Theme
-	{ "has_stylebox_override", "has_theme_stylebox_override" }, // Control
+	{ "has_stylebox", "has_theme_style_box" }, // Control -- Breaks Theme
+	{ "has_stylebox_override", "has_theme_style_box_override" }, // Control
 	{ "http_escape", "uri_encode" }, // String
 	{ "http_unescape", "uri_decode" }, // String
 	{ "import_scene_from_other_importer", "_import_scene" }, // EditorSceneFormatImporter

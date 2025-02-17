@@ -460,14 +460,14 @@ public:
 #endif
 
 	bool has_theme_icon_override(const StringName &p_name) const;
-	bool has_theme_stylebox_override(const StringName &p_name) const;
+	bool has_theme_style_box_override(const StringName &p_name) const;
 	bool has_theme_font_override(const StringName &p_name) const;
 	bool has_theme_font_size_override(const StringName &p_name) const;
 	bool has_theme_color_override(const StringName &p_name) const;
 	bool has_theme_constant_override(const StringName &p_name) const;
 
 	bool has_theme_icon(const StringName &p_name, const StringName &p_theme_type = StringName()) const;
-	bool has_theme_stylebox(const StringName &p_name, const StringName &p_theme_type = StringName()) const;
+	bool has_theme_style_box(const StringName &p_name, const StringName &p_theme_type = StringName()) const;
 	bool has_theme_font(const StringName &p_name, const StringName &p_theme_type = StringName()) const;
 	bool has_theme_font_size(const StringName &p_name, const StringName &p_theme_type = StringName()) const;
 	bool has_theme_color(const StringName &p_name, const StringName &p_theme_type = StringName()) const;

@@ -218,7 +218,7 @@ void Control::get_argument_options(const StringName &p_function, int p_idx, List
 			type = Theme::DATA_TYPE_FONT_SIZE;
 		} else if (pf == "add_theme_icon_override" || pf == "has_theme_icon" || pf == "has_theme_icon_override" || pf == "get_theme_icon" || pf == "remove_theme_icon_override") {
 			type = Theme::DATA_TYPE_ICON;
-		} else if (pf == "add_theme_stylebox_override" || pf == "has_theme_stylebox" || pf == "has_theme_stylebox_override" || pf == "get_theme_style_box" || pf == "remove_theme_stylebox_override") {
+		} else if (pf == "add_theme_stylebox_override" || pf == "has_theme_style_box" || pf == "has_theme_style_box_override" || pf == "get_theme_style_box" || pf == "remove_theme_stylebox_override") {
 			type = Theme::DATA_TYPE_STYLEBOX;
 		}
 
@@ -2831,14 +2831,14 @@ bool Control::has_theme_icon(const StringName &p_name, const StringName &p_theme
 	return data.theme_owner->has_theme_item_in_types(Theme::DATA_TYPE_ICON, p_name, theme_types);
 }
 
-bool Control::has_theme_stylebox(const StringName &p_name, const StringName &p_theme_type) const {
+bool Control::has_theme_style_box(const StringName &p_name, const StringName &p_theme_type) const {
 	ERR_READ_THREAD_GUARD_V(false);
 	if (!data.initialized) {
 		WARN_PRINT_ONCE(vformat("Attempting to access theme items too early in %s; prefer NOTIFICATION_POSTINITIALIZE and NOTIFICATION_THEME_CHANGED", get_description()));
 	}
 
 	if (p_theme_type == StringName() || p_theme_type == get_class_name() || p_theme_type == data.theme_type_variation) {
-		if (has_theme_stylebox_override(p_name)) {
+		if (has_theme_style_box_override(p_name)) {
 			return true;
 		}
 	}
@@ -3029,7 +3029,7 @@ bool Control::has_theme_icon_override(const StringName &p_name) const {
 	return tex != nullptr;
 }
 
-bool Control::has_theme_stylebox_override(const StringName &p_name) const {
+bool Control::has_theme_style_box_override(const StringName &p_name) const {
 	ERR_READ_THREAD_GUARD_V(false);
 	const Ref<StyleBox> *style = data.theme_style_override.getptr(p_name);
 	return style != nullptr;
@@ -3565,14 +3565,14 @@ void Control::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_theme_constant", "name", "theme_type"), &Control::get_theme_constant, DEFVAL(StringName()));
 
 	ClassDB::bind_method(D_METHOD("has_theme_icon_override", "name"), &Control::has_theme_icon_override);
-	ClassDB::bind_method(D_METHOD("has_theme_stylebox_override", "name"), &Control::has_theme_stylebox_override);
+	ClassDB::bind_method(D_METHOD("has_theme_style_box_override", "name"), &Control::has_theme_style_box_override);
 	ClassDB::bind_method(D_METHOD("has_theme_font_override", "name"), &Control::has_theme_font_override);
 	ClassDB::bind_method(D_METHOD("has_theme_font_size_override", "name"), &Control::has_theme_font_size_override);
 	ClassDB::bind_method(D_METHOD("has_theme_color_override", "name"), &Control::has_theme_color_override);
 	ClassDB::bind_method(D_METHOD("has_theme_constant_override", "name"), &Control::has_theme_constant_override);
 
 	ClassDB::bind_method(D_METHOD("has_theme_icon", "name", "theme_type"), &Control::has_theme_icon, DEFVAL(StringName()));
-	ClassDB::bind_method(D_METHOD("has_theme_stylebox", "name", "theme_type"), &Control::has_theme_stylebox, DEFVAL(StringName()));
+	ClassDB::bind_method(D_METHOD("has_theme_style_box", "name", "theme_type"), &Control::has_theme_style_box, DEFVAL(StringName()));
 	ClassDB::bind_method(D_METHOD("has_theme_font", "name", "theme_type"), &Control::has_theme_font, DEFVAL(StringName()));
 	ClassDB::bind_method(D_METHOD("has_theme_font_size", "name", "theme_type"), &Control::has_theme_font_size, DEFVAL(StringName()));
 	ClassDB::bind_method(D_METHOD("has_theme_color", "name", "theme_type"), &Control::has_theme_color, DEFVAL(StringName()));
