@@ -354,7 +354,7 @@ void SpinBox::_notification(int p_what) {
 			RID ci = get_canvas_item();
 			Size2i size = get_size();
 
-			Ref<StyleBox> up_stylebox = theme_cache.up_base_stylebox;
+			Ref<StyleBox> up_style_box = theme_cache.up_base_stylebox;
 			Ref<StyleBox> down_stylebox = theme_cache.down_base_stylebox;
 			Ref<Texture2D> up_icon = theme_cache.up_icon;
 			Ref<Texture2D> down_icon = theme_cache.down_icon;
@@ -364,15 +364,15 @@ void SpinBox::_notification(int p_what) {
 			bool is_fully_disabled = !is_editable();
 
 			if (state_cache.up_button_disabled || is_fully_disabled) {
-				up_stylebox = theme_cache.up_disabled_stylebox;
+				up_style_box = theme_cache.up_disabled_stylebox;
 				up_icon = theme_cache.up_disabled_icon;
 				up_icon_modulate = theme_cache.up_disabled_icon_modulate;
 			} else if (state_cache.up_button_pressed && !drag.enabled) {
-				up_stylebox = theme_cache.up_pressed_stylebox;
+				up_style_box = theme_cache.up_pressed_stylebox;
 				up_icon = theme_cache.up_pressed_icon;
 				up_icon_modulate = theme_cache.up_pressed_icon_modulate;
 			} else if (state_cache.up_button_hovered && !drag.enabled) {
-				up_stylebox = theme_cache.up_hover_stylebox;
+				up_style_box = theme_cache.up_hover_stylebox;
 				up_icon = theme_cache.up_hover_icon;
 				up_icon_modulate = theme_cache.up_hover_icon_modulate;
 			}
@@ -405,7 +405,7 @@ void SpinBox::_notification(int p_what) {
 			draw_style_box(theme_cache.field_and_buttons_separator, Rect2(sizing_cache.field_and_buttons_separator_left, 0, sizing_cache.field_and_buttons_separator_width, size.height));
 
 			// Draw buttons.
-			draw_style_box(up_stylebox, Rect2(sizing_cache.buttons_left, 0, sizing_cache.buttons_width, sizing_cache.button_up_height));
+			draw_style_box(up_style_box, Rect2(sizing_cache.buttons_left, 0, sizing_cache.buttons_width, sizing_cache.button_up_height));
 			draw_style_box(down_stylebox, Rect2(sizing_cache.buttons_left, sizing_cache.second_button_top, sizing_cache.buttons_width, sizing_cache.button_down_height));
 
 			// Draw arrows.
