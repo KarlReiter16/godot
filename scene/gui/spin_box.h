@@ -110,7 +110,7 @@ class SpinBox : public Range {
 		Ref<StyleBox> down_base_style_box;
 		Ref<StyleBox> down_hover_style_box;
 		Ref<StyleBox> down_pressed_style_box;
-		Ref<StyleBox> down_disabled_stylebox;
+		Ref<StyleBox> down_disabled_style_box;
 
 		Color up_icon_modulate;
 		Color up_hover_icon_modulate;
