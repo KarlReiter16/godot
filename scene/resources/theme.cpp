@@ -80,7 +80,7 @@ bool Theme::_get(const StringName &p_name, Variant &r_ret) const {
 				r_ret = get_icon(prop_name, theme_type);
 			}
 		} else if (type == "styles") {
-			if (!has_stylebox(prop_name, theme_type)) {
+			if (!has_style_box(prop_name, theme_type)) {
 				r_ret = Ref<StyleBox>();
 			} else {
 				r_ret = get_stylebox(prop_name, theme_type);
@@ -397,11 +397,11 @@ Ref<StyleBox> Theme::get_stylebox(const StringName &p_name, const StringName &p_
 	}
 }
 
-bool Theme::has_stylebox(const StringName &p_name, const StringName &p_theme_type) const {
+bool Theme::has_style_box(const StringName &p_name, const StringName &p_theme_type) const {
 	return (style_map.has(p_theme_type) && style_map[p_theme_type].has(p_name) && style_map[p_theme_type][p_name].is_valid());
 }
 
-bool Theme::has_stylebox_nocheck(const StringName &p_name, const StringName &p_theme_type) const {
+bool Theme::has_style_box_nocheck(const StringName &p_name, const StringName &p_theme_type) const {
 	return (style_map.has(p_theme_type) && style_map[p_theme_type].has(p_name));
 }
 
@@ -418,7 +418,7 @@ void Theme::rename_stylebox(const StringName &p_old_name, const StringName &p_na
 	_emit_theme_changed(true);
 }
 
-void Theme::clear_stylebox(const StringName &p_name, const StringName &p_theme_type) {
+void Theme::clear_style_box(const StringName &p_name, const StringName &p_theme_type) {
 	ERR_FAIL_COND_MSG(!style_map.has(p_theme_type), "Cannot clear the stylebox '" + String(p_name) + "' because the node type '" + String(p_theme_type) + "' does not exist.");
 	ERR_FAIL_COND_MSG(!style_map[p_theme_type].has(p_name), "Cannot clear the stylebox '" + String(p_name) + "' because it does not exist.");
 
@@ -945,7 +945,7 @@ bool Theme::has_theme_item(DataType p_data_type, const StringName &p_name, const
 		case DATA_TYPE_ICON:
 			return has_icon(p_name, p_theme_type);
 		case DATA_TYPE_STYLEBOX:
-			return has_stylebox(p_name, p_theme_type);
+			return has_style_box(p_name, p_theme_type);
 		case DATA_TYPE_MAX:
 			break; // Can't happen, but silences warning.
 	}
@@ -966,7 +966,7 @@ bool Theme::has_theme_item_nocheck(DataType p_data_type, const StringName &p_nam
 		case DATA_TYPE_ICON:
 			return has_icon_nocheck(p_name, p_theme_type);
 		case DATA_TYPE_STYLEBOX:
-			return has_stylebox_nocheck(p_name, p_theme_type);
+			return has_style_box_nocheck(p_name, p_theme_type);
 		case DATA_TYPE_MAX:
 			break; // Can't happen, but silences warning.
 	}
@@ -1017,7 +1017,7 @@ void Theme::clear_theme_item(DataType p_data_type, const StringName &p_name, con
 			clear_icon(p_name, p_theme_type);
 			break;
 		case DATA_TYPE_STYLEBOX:
-			clear_stylebox(p_name, p_theme_type);
+			clear_style_box(p_name, p_theme_type);
 			break;
 		case DATA_TYPE_MAX:
 			break; // Can't happen, but silences warning.
@@ -1703,9 +1703,9 @@ void Theme::_bind_methods() {
 
 	ClassDB::bind_method(D_METHOD("set_style_box", "name", "theme_type", "texture"), &Theme::set_style_box);
 	ClassDB::bind_method(D_METHOD("get_stylebox", "name", "theme_type"), &Theme::get_stylebox);
-	ClassDB::bind_method(D_METHOD("has_stylebox", "name", "theme_type"), &Theme::has_stylebox);
+	ClassDB::bind_method(D_METHOD("has_style_box", "name", "theme_type"), &Theme::has_style_box);
 	ClassDB::bind_method(D_METHOD("rename_stylebox", "old_name", "name", "theme_type"), &Theme::rename_stylebox);
-	ClassDB::bind_method(D_METHOD("clear_stylebox", "name", "theme_type"), &Theme::clear_stylebox);
+	ClassDB::bind_method(D_METHOD("clear_style_box", "name", "theme_type"), &Theme::clear_style_box);
 	ClassDB::bind_method(D_METHOD("get_stylebox_list", "theme_type"), &Theme::_get_stylebox_list);
 	ClassDB::bind_method(D_METHOD("get_stylebox_type_list"), &Theme::_get_stylebox_type_list);
 

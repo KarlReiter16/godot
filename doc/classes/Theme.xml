@@ -72,13 +72,13 @@
 				Fails if it doesn't exist. Use [method has_icon] to check for existence.
 			</description>
 		</method>
-		<method name="clear_stylebox">
+		<method name="clear_style_box">
 			<return type="void" />
 			<param index="0" name="name" type="StringName" />
 			<param index="1" name="theme_type" type="StringName" />
 			<description>
 				Removes the [StyleBox] property defined by [param name] and [param theme_type], if it exists.
-				Fails if it doesn't exist. Use [method has_stylebox] to check for existence.
+				Fails if it doesn't exist. Use [method has_style_box] to check for existence.
 			</description>
 		</method>
 		<method name="clear_theme_item">
@@ -217,7 +217,7 @@
 			<param index="1" name="theme_type" type="StringName" />
 			<description>
 				Returns the [StyleBox] property defined by [param name] and [param theme_type], if it exists.
-				Returns the engine fallback stylebox value if the property doesn't exist (see [member ThemeDB.fallback_stylebox]). Use [method has_stylebox] to check for existence.
+				Returns the engine fallback stylebox value if the property doesn't exist (see [member ThemeDB.fallback_stylebox]). Use [method has_style_box] to check for existence.
 			</description>
 		</method>
 		<method name="get_stylebox_list" qualifiers="const">
@@ -347,7 +347,7 @@
 				Returns [code]false[/code] if it doesn't exist. Use [method set_icon] to define it.
 			</description>
 		</method>
-		<method name="has_stylebox" qualifiers="const">
+		<method name="has_style_box" qualifiers="const">
 			<return type="bool" />
 			<param index="0" name="name" type="StringName" />
 			<param index="1" name="theme_type" type="StringName" />
@@ -447,7 +447,7 @@
 			<param index="2" name="theme_type" type="StringName" />
 			<description>
 				Renames the [StyleBox] property defined by [param old_name] and [param theme_type] to [param name], if it exists.
-				Fails if it doesn't exist, or if a similar property with the new name already exists. Use [method has_stylebox] to check for existence, and [method clear_stylebox] to remove the existing property.
+				Fails if it doesn't exist, or if a similar property with the new name already exists. Use [method has_style_box] to check for existence, and [method clear_style_box] to remove the existing property.
 			</description>
 		</method>
 		<method name="rename_theme_item">
@@ -513,7 +513,7 @@
 			<param index="1" name="theme_type" type="StringName" />
 			<param index="2" name="texture" type="StyleBox" />
 			<description>
-				Creates or changes the value of the [StyleBox] property defined by [param name] and [param theme_type]. Use [method clear_stylebox] to remove the property.
+				Creates or changes the value of the [StyleBox] property defined by [param name] and [param theme_type]. Use [method clear_style_box] to remove the property.
 			</description>
 		</method>
 		<method name="set_theme_item">
