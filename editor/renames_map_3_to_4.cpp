@@ -225,7 +225,7 @@ const char *RenamesMap3To4::gdscript_function_renames[][2] = {
 	{ "add_icon_override", "add_theme_icon_override" }, // Control
 	{ "add_scene_import_plugin", "add_scene_format_importer_plugin" }, //EditorPlugin
 	{ "add_spatial_gizmo_plugin", "add_node_3d_gizmo_plugin" }, // EditorPlugin
-	{ "add_stylebox_override", "add_theme_stylebox_override" }, // Control
+	{ "add_stylebox_override", "add_theme_style_box_override" }, // Control
 	{ "add_torque", "apply_torque" }, //RigidBody2D
 	{ "agent_set_neighbor_dist", "agent_set_neighbor_distance" }, // NavigationServer2D, NavigationServer3D
 	{ "apply_changes", "_apply_changes" }, // EditorPlugin

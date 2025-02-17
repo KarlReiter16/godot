@@ -287,7 +287,7 @@
 				See also [method get_theme_icon].
 			</description>
 		</method>
-		<method name="add_theme_stylebox_override">
+		<method name="add_theme_style_box_override">
 			<return type="void" />
 			<param index="0" name="name" type="StringName" />
 			<param index="1" name="stylebox" type="StyleBox" />
@@ -303,7 +303,7 @@
 				var new_stylebox_normal = $MyButton.get_theme_style_box("normal").duplicate()
 				new_stylebox_normal.border_width_top = 3
 				new_stylebox_normal.border_color = Color(0, 1, 0.5)
-				$MyButton.add_theme_stylebox_override("normal", new_stylebox_normal)
+				$MyButton.add_theme_style_box_override("normal", new_stylebox_normal)
 				# Remove the stylebox override.
 				$MyButton.remove_theme_stylebox_override("normal")
 				[/gdscript]
@@ -688,7 +688,7 @@
 			<param index="0" name="name" type="StringName" />
 			<description>
 				Returns [code]true[/code] if there is a local override for a theme [StyleBox] with the specified [param name] in this [Control] node.
-				See [method add_theme_stylebox_override].
+				See [method add_theme_style_box_override].
 			</description>
 		</method>
 		<method name="is_drag_successful" qualifiers="const">
@@ -749,7 +749,7 @@
 			<return type="void" />
 			<param index="0" name="name" type="StringName" />
 			<description>
-				Removes a local override for a theme [StyleBox] with the specified [param name] previously added by [method add_theme_stylebox_override] or via the Inspector dock.
+				Removes a local override for a theme [StyleBox] with the specified [param name] previously added by [method add_theme_style_box_override] or via the Inspector dock.
 			</description>
 		</method>
 		<method name="reset_size">

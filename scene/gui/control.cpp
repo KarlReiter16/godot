@@ -218,7 +218,7 @@ void Control::get_argument_options(const StringName &p_function, int p_idx, List
 			type = Theme::DATA_TYPE_FONT_SIZE;
 		} else if (pf == "add_theme_icon_override" || pf == "has_theme_icon" || pf == "has_theme_icon_override" || pf == "get_theme_icon" || pf == "remove_theme_icon_override") {
 			type = Theme::DATA_TYPE_ICON;
-		} else if (pf == "add_theme_stylebox_override" || pf == "has_theme_style_box" || pf == "has_theme_style_box_override" || pf == "get_theme_style_box" || pf == "remove_theme_stylebox_override") {
+		} else if (pf == "add_theme_style_box_override" || pf == "has_theme_style_box" || pf == "has_theme_style_box_override" || pf == "get_theme_style_box" || pf == "remove_theme_stylebox_override") {
 			type = Theme::DATA_TYPE_STYLEBOX;
 		}
 
@@ -3544,7 +3544,7 @@ void Control::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("end_bulk_theme_override"), &Control::end_bulk_theme_override);
 
 	ClassDB::bind_method(D_METHOD("add_theme_icon_override", "name", "texture"), &Control::add_theme_icon_override);
-	ClassDB::bind_method(D_METHOD("add_theme_stylebox_override", "name", "stylebox"), &Control::add_theme_style_override);
+	ClassDB::bind_method(D_METHOD("add_theme_style_box_override", "name", "stylebox"), &Control::add_theme_style_override);
 	ClassDB::bind_method(D_METHOD("add_theme_font_override", "name", "font"), &Control::add_theme_font_override);
 	ClassDB::bind_method(D_METHOD("add_theme_font_size_override", "name", "font_size"), &Control::add_theme_font_size_override);
 	ClassDB::bind_method(D_METHOD("add_theme_color_override", "name", "color"), &Control::add_theme_color_override);

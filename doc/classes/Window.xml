@@ -61,13 +61,13 @@
 				See also [method get_theme_icon].
 			</description>
 		</method>
-		<method name="add_theme_stylebox_override">
+		<method name="add_theme_style_box_override">
 			<return type="void" />
 			<param index="0" name="name" type="StringName" />
 			<param index="1" name="stylebox" type="StyleBox" />
 			<description>
 				Creates a local override for a theme [StyleBox] with the specified [param name]. Local overrides always take precedence when fetching theme items for the control. An override can be removed with [method remove_theme_stylebox_override].
-				See also [method get_theme_style_box] and [method Control.add_theme_stylebox_override] for more details.
+				See also [method get_theme_style_box] and [method Control.add_theme_style_box_override] for more details.
 			</description>
 		</method>
 		<method name="begin_bulk_theme_override">
@@ -320,7 +320,7 @@
 			<param index="0" name="name" type="StringName" />
 			<description>
 				Returns [code]true[/code] if there is a local override for a theme [StyleBox] with the specified [param name] in this [Control] node.
-				See [method add_theme_stylebox_override].
+				See [method add_theme_style_box_override].
 			</description>
 		</method>
 		<method name="hide">
@@ -492,7 +492,7 @@
 			<return type="void" />
 			<param index="0" name="name" type="StringName" />
 			<description>
-				Removes a local override for a theme [StyleBox] with the specified [param name] previously added by [method add_theme_stylebox_override] or via the Inspector dock.
+				Removes a local override for a theme [StyleBox] with the specified [param name] previously added by [method add_theme_style_box_override] or via the Inspector dock.
 			</description>
 		</method>
 		<method name="request_attention">
