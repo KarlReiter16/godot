@@ -239,10 +239,10 @@ void Button::_notification(int p_what) {
 				break;
 			}
 
-			const float style_margin_left = (theme_cache.align_to_largest_stylebox) ? theme_cache.style_margin_left : style->get_margin(SIDE_LEFT);
-			const float style_margin_right = (theme_cache.align_to_largest_stylebox) ? theme_cache.style_margin_right : style->get_margin(SIDE_RIGHT);
-			const float style_margin_top = (theme_cache.align_to_largest_stylebox) ? theme_cache.style_margin_top : style->get_margin(SIDE_TOP);
-			const float style_margin_bottom = (theme_cache.align_to_largest_stylebox) ? theme_cache.style_margin_bottom : style->get_margin(SIDE_BOTTOM);
+			const float style_margin_left = (theme_cache.align_to_largest_style_box) ? theme_cache.style_margin_left : style->get_margin(SIDE_LEFT);
+			const float style_margin_right = (theme_cache.align_to_largest_style_box) ? theme_cache.style_margin_right : style->get_margin(SIDE_RIGHT);
+			const float style_margin_top = (theme_cache.align_to_largest_style_box) ? theme_cache.style_margin_top : style->get_margin(SIDE_TOP);
+			const float style_margin_bottom = (theme_cache.align_to_largest_style_box) ? theme_cache.style_margin_bottom : style->get_margin(SIDE_BOTTOM);
 
 			Size2 drawable_size_remained = size;
 
@@ -531,7 +531,7 @@ Size2 Button::get_minimum_size_for_text_and_icon(const String &p_text, Ref<Textu
 		}
 	}
 
-	return (theme_cache.align_to_largest_stylebox ? _get_largest_stylebox_size() : _get_current_stylebox()->get_minimum_size()) + minsize;
+	return (theme_cache.align_to_largest_style_box ? _get_largest_stylebox_size() : _get_current_stylebox()->get_minimum_size()) + minsize;
 }
 
 void Button::_shape(Ref<TextParagraph> p_paragraph, String p_text) const {
@@ -840,7 +840,7 @@ void Button::_bind_methods() {
 	BIND_THEME_ITEM(Theme::DATA_TYPE_CONSTANT, Button, h_separation);
 	BIND_THEME_ITEM(Theme::DATA_TYPE_CONSTANT, Button, icon_max_width);
 
-	BIND_THEME_ITEM(Theme::DATA_TYPE_CONSTANT, Button, align_to_largest_stylebox);
+	BIND_THEME_ITEM(Theme::DATA_TYPE_CONSTANT, Button, align_to_largest_style_box);
 	BIND_THEME_ITEM(Theme::DATA_TYPE_CONSTANT, Button, line_spacing);
 }
 

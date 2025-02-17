@@ -2390,7 +2390,7 @@ Table of contents:
 - Fix subwindow titlebar redraw on oversampling change ([GH-93490](https://github.com/godotengine/godot/pull/93490)).
 - CodeEdit: Fix move lines up/down viewport and selection issues ([GH-93607](https://github.com/godotengine/godot/pull/93607)).
 - Hide unused category vboxes in inspector ([GH-93627](https://github.com/godotengine/godot/pull/93627)).
-- Button: Use `align_to_largest_stylebox` for min. size calculation ([GH-93708](https://github.com/godotengine/godot/pull/93708)).
+- Button: Use `align_to_largest_style_box` for min. size calculation ([GH-93708](https://github.com/godotengine/godot/pull/93708)).
 - Fix RichTextLabel fade set `start_index` to command offset ([GH-93721](https://github.com/godotengine/godot/pull/93721)).
 - Change GUI controls pixel snap to round halfway towards positive infinity (`floor(x + 0.5)`) ([GH-93749](https://github.com/godotengine/godot/pull/93749)).
 - Fix division by zero in aspect ratio calculation ([GH-93764](https://github.com/godotengine/godot/pull/93764)).

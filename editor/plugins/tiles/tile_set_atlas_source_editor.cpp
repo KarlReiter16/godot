@@ -997,7 +997,7 @@ void TileSetAtlasSourceEditor::_update_atlas_view() {
 				button->add_theme_style_override(SceneStringName(hover), memnew(StyleBoxEmpty));
 				button->add_theme_style_override("focus", memnew(StyleBoxEmpty));
 				button->add_theme_style_override(SceneStringName(pressed), memnew(StyleBoxEmpty));
-				button->add_theme_constant_override("align_to_largest_stylebox", false);
+				button->add_theme_constant_override("align_to_largest_style_box", false);
 				button->set_mouse_filter(Control::MOUSE_FILTER_PASS);
 				button->connect(SceneStringName(pressed), callable_mp(this, &TileSetAtlasSourceEditor::_tile_alternatives_create_button_pressed).bind(tile_id));
 				button->set_rect(Rect2(Vector2(pos.x, pos.y + (y_increment - texture_region_base_size.y) / 2.0), Vector2(texture_region_base_size_min, texture_region_base_size_min)));
