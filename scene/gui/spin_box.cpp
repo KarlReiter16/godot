@@ -354,7 +354,7 @@ void SpinBox::_notification(int p_what) {
 			RID ci = get_canvas_item();
 			Size2i size = get_size();
 
-			Ref<StyleBox> up_style_box = theme_cache.up_base_stylebox;
+			Ref<StyleBox> up_style_box = theme_cache.up_base_style_box;
 			Ref<StyleBox> down_style_box = theme_cache.down_base_stylebox;
 			Ref<Texture2D> up_icon = theme_cache.up_icon;
 			Ref<Texture2D> down_icon = theme_cache.down_icon;
@@ -599,7 +599,7 @@ void SpinBox::_bind_methods() {
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_ICON, SpinBox, down_pressed_icon, "down_pressed");
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_ICON, SpinBox, down_disabled_icon, "down_disabled");
 
-	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, up_base_stylebox, "up_background");
+	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, up_base_style_box, "up_background");
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, up_hover_stylebox, "up_background_hovered");
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, up_pressed_stylebox, "up_background_pressed");
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, up_disabled_stylebox, "up_background_disabled");

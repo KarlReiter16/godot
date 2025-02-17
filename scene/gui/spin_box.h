@@ -103,7 +103,7 @@ class SpinBox : public Range {
 		Ref<Texture2D> down_pressed_icon;
 		Ref<Texture2D> down_disabled_icon;
 
-		Ref<StyleBox> up_base_stylebox;
+		Ref<StyleBox> up_base_style_box;
 		Ref<StyleBox> up_hover_stylebox;
 		Ref<StyleBox> up_pressed_stylebox;
 		Ref<StyleBox> up_disabled_stylebox;
