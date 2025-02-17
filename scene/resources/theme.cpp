@@ -393,7 +393,7 @@ Ref<StyleBox> Theme::get_style_box(const StringName &p_name, const StringName &p
 	if (style_map.has(p_theme_type) && style_map[p_theme_type].has(p_name) && style_map[p_theme_type][p_name].is_valid()) {
 		return style_map[p_theme_type][p_name];
 	} else {
-		return ThemeDB::get_singleton()->get_fallback_stylebox();
+		return ThemeDB::get_singleton()->get_fallback_style_box();
 	}
 }
 

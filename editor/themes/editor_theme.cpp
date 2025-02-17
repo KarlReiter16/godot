@@ -115,7 +115,7 @@ Ref<StyleBox> EditorTheme::get_style_box(const StringName &p_name, const StringN
 		if (editor_theme_types.has(p_theme_type)) {
 			WARN_PRINT(vformat("Trying to access a non-existing editor theme stylebox '%s' in '%s'.", p_name, p_theme_type));
 		}
-		return ThemeDB::get_singleton()->get_fallback_stylebox();
+		return ThemeDB::get_singleton()->get_fallback_style_box();
 	}
 }
 

@@ -1308,7 +1308,7 @@ void make_default_theme(float p_scale, Ref<Font> p_font, TextServer::SubpixelPos
 
 	ThemeDB::get_singleton()->set_fallback_base_scale(default_scale);
 	ThemeDB::get_singleton()->set_fallback_icon(default_icon);
-	ThemeDB::get_singleton()->set_fallback_stylebox(default_style);
+	ThemeDB::get_singleton()->set_fallback_style_box(default_style);
 	ThemeDB::get_singleton()->set_fallback_font(default_font);
 	ThemeDB::get_singleton()->set_fallback_font_size(default_font_size * default_scale);
 }

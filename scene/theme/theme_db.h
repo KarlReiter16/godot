@@ -85,7 +85,7 @@ class ThemeDB : public Object {
 	Ref<Font> fallback_font;
 	int fallback_font_size = 16;
 	Ref<Texture2D> fallback_icon;
-	Ref<StyleBox> fallback_stylebox;
+	Ref<StyleBox> fallback_style_box;
 
 	// Global theme contexts used to scope global Theme resources.
 
@@ -153,8 +153,8 @@ public:
 	void set_fallback_icon(const Ref<Texture2D> &p_icon);
 	Ref<Texture2D> get_fallback_icon();
 
-	void set_fallback_stylebox(const Ref<StyleBox> &p_stylebox);
-	Ref<StyleBox> get_fallback_stylebox();
+	void set_fallback_style_box(const Ref<StyleBox> &p_stylebox);
+	Ref<StyleBox> get_fallback_style_box();
 
 	void get_native_type_dependencies(const StringName &p_base_type, Vector<StringName> &r_result);
 

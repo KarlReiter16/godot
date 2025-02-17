@@ -217,7 +217,7 @@
 			<param index="1" name="theme_type" type="StringName" />
 			<description>
 				Returns the [StyleBox] property defined by [param name] and [param theme_type], if it exists.
-				Returns the engine fallback stylebox value if the property doesn't exist (see [member ThemeDB.fallback_stylebox]). Use [method has_style_box] to check for existence.
+				Returns the engine fallback stylebox value if the property doesn't exist (see [member ThemeDB.fallback_style_box]). Use [method has_style_box] to check for existence.
 			</description>
 		</method>
 		<method name="get_style_box_list" qualifiers="const">
