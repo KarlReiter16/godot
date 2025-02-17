@@ -271,7 +271,7 @@ void AnimationNodeBlendTreeEditor::update_graph() {
 			mb->get_popup()->connect("index_pressed", callable_mp(this, &AnimationNodeBlendTreeEditor::_anim_selected).bind(options, E), CONNECT_DEFERRED);
 		}
 
-		Ref<StyleBox> sb_panel = node->get_theme_stylebox(SceneStringName(panel), "GraphNode")->duplicate();
+		Ref<StyleBox> sb_panel = node->get_theme_style_box(SceneStringName(panel), "GraphNode")->duplicate();
 		if (sb_panel.is_valid()) {
 			sb_panel->set_content_margin(SIDE_TOP, 12 * EDSCALE);
 			sb_panel->set_content_margin(SIDE_BOTTOM, 12 * EDSCALE);
@@ -946,7 +946,7 @@ void AnimationNodeBlendTreeEditor::_notification(int p_what) {
 		} break;
 
 		case NOTIFICATION_THEME_CHANGED: {
-			error_panel->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SceneStringName(panel), SNAME("Tree")));
+			error_panel->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SceneStringName(panel), SNAME("Tree")));
 			error_label->add_theme_color_override(SceneStringName(font_color), get_theme_color(SNAME("error_color"), EditorStringName(Editor)));
 
 			if (is_visible_in_tree()) {

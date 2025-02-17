@@ -293,14 +293,14 @@
 			<param index="1" name="stylebox" type="StyleBox" />
 			<description>
 				Creates a local override for a theme [StyleBox] with the specified [param name]. Local overrides always take precedence when fetching theme items for the control. An override can be removed with [method remove_theme_stylebox_override].
-				See also [method get_theme_stylebox].
+				See also [method get_theme_style_box].
 				[b]Example:[/b] Modify a property in a [StyleBox] by duplicating it:
 				[codeblocks]
 				[gdscript]
 				# The snippet below assumes the child node "MyButton" has a StyleBoxFlat assigned.
 				# Resources are shared across instances, so we need to duplicate it
 				# to avoid modifying the appearance of all other buttons.
-				var new_stylebox_normal = $MyButton.get_theme_stylebox("normal").duplicate()
+				var new_stylebox_normal = $MyButton.get_theme_style_box("normal").duplicate()
 				new_stylebox_normal.border_width_top = 3
 				new_stylebox_normal.border_color = Color(0, 1, 0.5)
 				$MyButton.add_theme_stylebox_override("normal", new_stylebox_normal)
@@ -540,7 +540,7 @@
 				See [method get_theme_color] for details.
 			</description>
 		</method>
-		<method name="get_theme_stylebox" qualifiers="const">
+		<method name="get_theme_style_box" qualifiers="const">
 			<return type="StyleBox" />
 			<param index="0" name="name" type="StringName" />
 			<param index="1" name="theme_type" type="StringName" default="&amp;&quot;&quot;" />

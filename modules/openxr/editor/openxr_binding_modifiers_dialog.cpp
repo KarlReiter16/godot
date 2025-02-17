@@ -45,7 +45,7 @@ void OpenXRBindingModifiersDialog::_notification(int p_what) {
 
 		case NOTIFICATION_THEME_CHANGED: {
 			if (binding_modifier_sc) {
-				binding_modifier_sc->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SceneStringName(panel), SNAME("Tree")));
+				binding_modifier_sc->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SceneStringName(panel), SNAME("Tree")));
 			}
 		} break;
 	}
@@ -75,7 +75,7 @@ OpenXRBindingModifierEditor *OpenXRBindingModifiersDialog::_add_binding_modifier
 	new_editor->connect("binding_modifier_removed", callable_mp(this, &OpenXRBindingModifiersDialog::_on_remove_binding_modifier));
 
 	binding_modifiers_vb->add_child(new_editor);
-	new_editor->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SceneStringName(panel), SNAME("Tree")));
+	new_editor->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SceneStringName(panel), SNAME("Tree")));
 
 	return new_editor;
 }

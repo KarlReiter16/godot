@@ -701,11 +701,11 @@ void VisualShaderGraphPlugin::add_node(VisualShader::Type p_type, int p_id, bool
 
 	// Set the node's titlebar color based on its category.
 	if (vsnode->get_category() != VisualShaderNode::CATEGORY_NONE && !is_frame && !is_reroute) {
-		Ref<StyleBoxFlat> sb_colored = editor->get_theme_stylebox("titlebar", "GraphNode")->duplicate();
+		Ref<StyleBoxFlat> sb_colored = editor->get_theme_style_box("titlebar", "GraphNode")->duplicate();
 		sb_colored->set_bg_color(category_color[vsnode->get_category()]);
 		node->add_theme_style_override("titlebar", sb_colored);
 
-		Ref<StyleBoxFlat> sb_colored_selected = editor->get_theme_stylebox("titlebar_selected", "GraphNode")->duplicate();
+		Ref<StyleBoxFlat> sb_colored_selected = editor->get_theme_style_box("titlebar_selected", "GraphNode")->duplicate();
 		sb_colored_selected->set_bg_color(category_color[vsnode->get_category()].lightened(0.2));
 		node->add_theme_style_override("titlebar_selected", sb_colored_selected);
 	}
@@ -798,7 +798,7 @@ void VisualShaderGraphPlugin::add_node(VisualShader::Type p_type, int p_id, bool
 	}
 
 	// Set the minimum width of a node based on the preview size to avoid a resize when toggling the preview.
-	Ref<StyleBoxFlat> graph_node_stylebox = graph->get_theme_stylebox(SceneStringName(panel), "GraphNode");
+	Ref<StyleBoxFlat> graph_node_stylebox = graph->get_theme_style_box(SceneStringName(panel), "GraphNode");
 	int port_preview_size = EDITOR_GET("editors/visual_editors/visual_shader/port_preview_size");
 	if (!is_frame && !is_reroute) {
 		node->set_custom_minimum_size(Size2((Math::ceil(graph_node_stylebox->get_minimum_size().width) + port_preview_size) * EDSCALE, 0));
@@ -1152,14 +1152,14 @@ void VisualShaderGraphPlugin::add_node(VisualShader::Type p_type, int p_id, bool
 					Label *label = memnew(Label);
 					label->set_auto_translate_mode(Node::AUTO_TRANSLATE_MODE_DISABLED); // TODO: Implement proper translation switch.
 					label->set_text(name_left);
-					label->add_theme_style_override(CoreStringName(normal), editor->get_theme_stylebox(SNAME("label_style"), SNAME("VShaderEditor")));
+					label->add_theme_style_override(CoreStringName(normal), editor->get_theme_style_box(SNAME("label_style"), SNAME("VShaderEditor")));
 					hb->add_child(label);
 
 					if (vsnode->is_input_port_default(j, mode) && !port_left_used) {
 						Label *hint_label = memnew(Label);
 						hint_label->set_text(TTR("[default]"));
 						hint_label->add_theme_color_override(SceneStringName(font_color), editor->get_theme_color(SNAME("font_readonly_color"), SNAME("TextEdit")));
-						hint_label->add_theme_style_override(CoreStringName(normal), editor->get_theme_stylebox(SNAME("label_style"), SNAME("VShaderEditor")));
+						hint_label->add_theme_style_override(CoreStringName(normal), editor->get_theme_style_box(SNAME("label_style"), SNAME("VShaderEditor")));
 						hb->add_child(hint_label);
 					}
 				}
@@ -1202,7 +1202,7 @@ void VisualShaderGraphPlugin::add_node(VisualShader::Type p_type, int p_id, bool
 					Label *label = memnew(Label);
 					label->set_auto_translate_mode(Node::AUTO_TRANSLATE_MODE_DISABLED); // TODO: Implement proper translation switch.
 					label->set_text(name_right);
-					label->add_theme_style_override(CoreStringName(normal), editor->get_theme_stylebox(SNAME("label_style"), SNAME("VShaderEditor"))); //more compact
+					label->add_theme_style_override(CoreStringName(normal), editor->get_theme_style_box(SNAME("label_style"), SNAME("VShaderEditor"))); //more compact
 					hb->add_child(label);
 				}
 			}
@@ -2472,7 +2472,7 @@ void VisualShaderEditor::_draw_color_over_button(Object *p_obj, Color p_color) {
 		return;
 	}
 
-	Ref<StyleBox> normal = get_theme_stylebox(CoreStringName(normal), SNAME("Button"));
+	Ref<StyleBox> normal = get_theme_style_box(CoreStringName(normal), SNAME("Button"));
 	button->draw_rect(Rect2(normal->get_offset(), button->get_size() - normal->get_minimum_size()), p_color);
 }
 
@@ -5240,7 +5240,7 @@ void VisualShaderEditor::_notification(int p_what) {
 				preview_text->add_comment_delimiter("/*", "*/", false);
 				preview_text->add_comment_delimiter("//", "", true);
 
-				error_panel->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SceneStringName(panel), SNAME("Panel")));
+				error_panel->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SceneStringName(panel), SNAME("Panel")));
 				error_label->begin_bulk_theme_override();
 				error_label->add_theme_font_override(SceneStringName(font), get_theme_font(SNAME("status_source"), EditorStringName(EditorFonts)));
 				error_label->add_theme_font_size_override(SceneStringName(font_size), get_theme_font_size(SNAME("status_source_size"), EditorStringName(EditorFonts)));

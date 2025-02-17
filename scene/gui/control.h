@@ -601,7 +601,7 @@ public:
 	void remove_theme_constant_override(const StringName &p_name);
 
 	Ref<Texture2D> get_theme_icon(const StringName &p_name, const StringName &p_theme_type = StringName()) const;
-	Ref<StyleBox> get_theme_stylebox(const StringName &p_name, const StringName &p_theme_type = StringName()) const;
+	Ref<StyleBox> get_theme_style_box(const StringName &p_name, const StringName &p_theme_type = StringName()) const;
 	Ref<Font> get_theme_font(const StringName &p_name, const StringName &p_theme_type = StringName()) const;
 	int get_theme_font_size(const StringName &p_name, const StringName &p_theme_type = StringName()) const;
 	Color get_theme_color(const StringName &p_name, const StringName &p_theme_type = StringName()) const;

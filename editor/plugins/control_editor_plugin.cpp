@@ -64,7 +64,7 @@ void ControlPositioningWarning::_update_warning() {
 		hint_label->set_text(TTR("Use anchors and the rectangle for positioning."));
 	}
 
-	bg_panel->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SNAME("bg_group_note"), SNAME("EditorProperty")));
+	bg_panel->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SNAME("bg_group_note"), SNAME("EditorProperty")));
 }
 
 void ControlPositioningWarning::_update_toggler() {

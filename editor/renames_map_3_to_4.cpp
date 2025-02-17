@@ -179,7 +179,7 @@ const char *RenamesMap3To4::gdscript_function_renames[][2] = {
 	// { "get_points", "get_points_id" }, // AStar -- Breaks Line2D, ConvexPolygonShape.
 	// { "get_process_mode", "get_process_callback" }, // ClippedCamera3D -- Breaks Node, Sky.
 	// { "get_render_info", "get_rendering_info" }, // RenderingServer -- Breaks Viewport.
-	// { "get_stylebox", "get_theme_stylebox" }, // Control -- Would rename the method in Theme as well, skipping.
+	// { "get_stylebox", "get_theme_style_box" }, // Control -- Would rename the method in Theme as well, skipping.
 	// { "get_type", "get_tracker_type" }, // XRPositionalTracker -- Breaks GLTFAccessor, GLTFLight.
 	// { "get_v_offset", "get_drag_vertical_offset" }, // Camera2D -- Breaks PathFollow, Camera.
 	// { "get_v_scroll", "get_v_scroll_bar" }, // ItemList -- Breaks TextView.

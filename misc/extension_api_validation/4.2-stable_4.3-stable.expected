@@ -151,7 +151,7 @@ Validate extension JSON: Error: Field 'classes/Control/methods/get_theme_constan
 Validate extension JSON: Error: Field 'classes/Control/methods/get_theme_font/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".
 Validate extension JSON: Error: Field 'classes/Control/methods/get_theme_font_size/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".
 Validate extension JSON: Error: Field 'classes/Control/methods/get_theme_icon/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".
-Validate extension JSON: Error: Field 'classes/Control/methods/get_theme_stylebox/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".
+Validate extension JSON: Error: Field 'classes/Control/methods/get_theme_style_box/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".
 Validate extension JSON: Error: Field 'classes/Control/methods/has_theme_color/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".
 Validate extension JSON: Error: Field 'classes/Control/methods/has_theme_constant/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".
 Validate extension JSON: Error: Field 'classes/Control/methods/has_theme_font/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".
@@ -172,7 +172,7 @@ Validate extension JSON: Error: Field 'classes/Window/methods/get_theme_constant
 Validate extension JSON: Error: Field 'classes/Window/methods/get_theme_font/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".
 Validate extension JSON: Error: Field 'classes/Window/methods/get_theme_font_size/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".
 Validate extension JSON: Error: Field 'classes/Window/methods/get_theme_icon/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".
-Validate extension JSON: Error: Field 'classes/Window/methods/get_theme_stylebox/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".
+Validate extension JSON: Error: Field 'classes/Window/methods/get_theme_style_box/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".
 Validate extension JSON: Error: Field 'classes/Window/methods/has_theme_color/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".
 Validate extension JSON: Error: Field 'classes/Window/methods/has_theme_constant/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".
 Validate extension JSON: Error: Field 'classes/Window/methods/has_theme_font/arguments/1': default_value changed value in new API, from "\"\"" to "&\"\"".

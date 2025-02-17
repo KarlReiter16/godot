@@ -222,7 +222,7 @@ void GDExtensionSpecialCompatHashes::initialize() {
 		{ "set_anchors_and_offsets_preset", 3651818904, 3724524307 },
 		{ "set_anchor", 2589937826, 2302782885 },
 		{ "get_theme_icon", 2336455395, 3163973443 },
-		{ "get_theme_stylebox", 2759935355, 604739069 },
+		{ "get_theme_style_box", 2759935355, 604739069 },
 		{ "get_theme_font", 387378635, 2826986490 },
 		{ "get_theme_font_size", 229578101, 1327056374 },
 		{ "get_theme_color", 2377051548, 2798751242 },
@@ -991,7 +991,7 @@ void GDExtensionSpecialCompatHashes::initialize() {
 	});
 	mappings.insert("Window", {
 		{ "get_theme_icon", 2336455395, 3163973443 },
-		{ "get_theme_stylebox", 2759935355, 604739069 },
+		{ "get_theme_style_box", 2759935355, 604739069 },
 		{ "get_theme_font", 387378635, 2826986490 },
 		{ "get_theme_font_size", 229578101, 1327056374 },
 		{ "get_theme_color", 2377051548, 2798751242 },

@@ -1799,7 +1799,7 @@ void ScriptEditor::_notification(int p_what) {
 		case NOTIFICATION_TRANSLATION_CHANGED:
 		case NOTIFICATION_LAYOUT_DIRECTION_CHANGED:
 		case NOTIFICATION_THEME_CHANGED: {
-			tab_container->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SNAME("ScriptEditor"), EditorStringName(EditorStyles)));
+			tab_container->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SNAME("ScriptEditor"), EditorStringName(EditorStyles)));
 
 			help_search->set_button_icon(get_editor_theme_icon(SNAME("HelpSearch")));
 			site_search->set_button_icon(get_editor_theme_icon(SNAME("ExternalLink")));
@@ -1817,7 +1817,7 @@ void ScriptEditor::_notification(int p_what) {
 			filter_scripts->set_right_icon(get_editor_theme_icon(SNAME("Search")));
 			filter_methods->set_right_icon(get_editor_theme_icon(SNAME("Search")));
 
-			filename->add_theme_style_override(CoreStringName(normal), get_theme_stylebox(CoreStringName(normal), SNAME("LineEdit")));
+			filename->add_theme_style_override(CoreStringName(normal), get_theme_style_box(CoreStringName(normal), SNAME("LineEdit")));
 
 			recent_scripts->reset_size();
 
@@ -1828,7 +1828,7 @@ void ScriptEditor::_notification(int p_what) {
 
 		case NOTIFICATION_READY: {
 			// Can't set own styles in NOTIFICATION_THEME_CHANGED, so for now this will do.
-			add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SNAME("ScriptEditorPanel"), EditorStringName(EditorStyles)));
+			add_theme_style_override(SceneStringName(panel), get_theme_style_box(SNAME("ScriptEditorPanel"), EditorStringName(EditorStyles)));
 
 			get_tree()->connect("tree_changed", callable_mp(this, &ScriptEditor::_tree_changed));
 			InspectorDock::get_singleton()->connect("request_help", callable_mp(this, &ScriptEditor::_help_class_open));
@@ -4526,9 +4526,9 @@ void ScriptEditorPlugin::_save_last_editor(const String &p_editor) {
 void ScriptEditorPlugin::_window_visibility_changed(bool p_visible) {
 	_focus_another_editor();
 	if (p_visible) {
-		script_editor->add_theme_style_override(SceneStringName(panel), script_editor->get_theme_stylebox("ScriptEditorPanelFloating", EditorStringName(EditorStyles)));
+		script_editor->add_theme_style_override(SceneStringName(panel), script_editor->get_theme_style_box("ScriptEditorPanelFloating", EditorStringName(EditorStyles)));
 	} else {
-		script_editor->add_theme_style_override(SceneStringName(panel), script_editor->get_theme_stylebox("ScriptEditorPanel", EditorStringName(EditorStyles)));
+		script_editor->add_theme_style_override(SceneStringName(panel), script_editor->get_theme_style_box("ScriptEditorPanel", EditorStringName(EditorStyles)));
 	}
 }
 

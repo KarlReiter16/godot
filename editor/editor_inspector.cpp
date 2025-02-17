@@ -388,11 +388,11 @@ void EditorProperty::_notification(int p_what) {
 			if (label.is_empty()) {
 				size.height = 0;
 			} else {
-				Ref<StyleBox> sb = get_theme_stylebox(selected ? SNAME("bg_selected") : SNAME("bg"));
+				Ref<StyleBox> sb = get_theme_style_box(selected ? SNAME("bg_selected") : SNAME("bg"));
 				draw_style_box(sb, Rect2(Vector2(), size));
 			}
 
-			Ref<StyleBox> bg_stylebox = get_theme_stylebox(SNAME("child_bg"));
+			Ref<StyleBox> bg_stylebox = get_theme_style_box(SNAME("child_bg"));
 			if (draw_top_bg && right_child_rect != Rect2() && draw_background) {
 				draw_style_box(bg_stylebox, right_child_rect);
 			}
@@ -461,7 +461,7 @@ void EditorProperty::_notification(int p_what) {
 					color2.g *= 1.2;
 					color2.b *= 1.2;
 
-					Ref<StyleBox> sb_hover = get_theme_stylebox(SceneStringName(hover), "Button");
+					Ref<StyleBox> sb_hover = get_theme_style_box(SceneStringName(hover), "Button");
 					if (rtl) {
 						draw_style_box(sb_hover, Rect2(rtl_pos, revert_rect.size));
 					} else {
@@ -523,7 +523,7 @@ void EditorProperty::_notification(int p_what) {
 					color2.g *= 1.2;
 					color2.b *= 1.2;
 
-					Ref<StyleBox> sb_hover = get_theme_stylebox(SceneStringName(hover), "Button");
+					Ref<StyleBox> sb_hover = get_theme_style_box(SceneStringName(hover), "Button");
 					if (rtl) {
 						draw_style_box(sb_hover, Rect2(rtl_pos, keying_rect.size));
 					} else {
@@ -560,7 +560,7 @@ void EditorProperty::_notification(int p_what) {
 					color2.g *= 1.2;
 					color2.b *= 1.2;
 
-					Ref<StyleBox> sb_hover = get_theme_stylebox(SceneStringName(hover), "Button");
+					Ref<StyleBox> sb_hover = get_theme_style_box(SceneStringName(hover), "Button");
 					if (rtl) {
 						draw_style_box(sb_hover, Rect2(rtl_pos, delete_rect.size));
 					} else {
@@ -705,15 +705,15 @@ void EditorProperty::_update_property_bg() {
 			}
 			count_subinspectors = MIN(16, count_subinspectors);
 		}
-		add_theme_style_override(SNAME("DictionaryAddItem"), get_theme_stylebox("DictionaryAddItem" + itos(count_subinspectors), EditorStringName(EditorStyles)));
+		add_theme_style_override(SNAME("DictionaryAddItem"), get_theme_style_box("DictionaryAddItem" + itos(count_subinspectors), EditorStringName(EditorStyles)));
 		add_theme_constant_override("v_separation", 0);
 		if (delimitate_all_container_and_resources || is_colored(nested_color_mode)) {
-			add_theme_style_override("bg_selected", get_theme_stylebox("sub_inspector_property_bg" + itos(count_subinspectors), EditorStringName(EditorStyles)));
-			add_theme_style_override("bg", get_theme_stylebox("sub_inspector_property_bg" + itos(count_subinspectors), EditorStringName(EditorStyles)));
+			add_theme_style_override("bg_selected", get_theme_style_box("sub_inspector_property_bg" + itos(count_subinspectors), EditorStringName(EditorStyles)));
+			add_theme_style_override("bg", get_theme_style_box("sub_inspector_property_bg" + itos(count_subinspectors), EditorStringName(EditorStyles)));
 			add_theme_color_override("property_color", get_theme_color(SNAME("sub_inspector_property_color"), EditorStringName(EditorStyles)));
-			bottom_editor->add_theme_style_override(SceneStringName(panel), get_theme_stylebox("sub_inspector_bg" + itos(count_subinspectors), EditorStringName(EditorStyles)));
+			bottom_editor->add_theme_style_override(SceneStringName(panel), get_theme_style_box("sub_inspector_bg" + itos(count_subinspectors), EditorStringName(EditorStyles)));
 		} else {
-			bottom_editor->add_theme_style_override(SceneStringName(panel), get_theme_stylebox("sub_inspector_bg_no_border", EditorStringName(EditorStyles)));
+			bottom_editor->add_theme_style_override(SceneStringName(panel), get_theme_style_box("sub_inspector_bg_no_border", EditorStringName(EditorStyles)));
 		}
 	} else {
 		remove_theme_style_override("bg_selected");
@@ -1481,7 +1481,7 @@ void EditorInspectorCategory::_notification(int p_what) {
 			}
 		} break;
 		case NOTIFICATION_DRAW: {
-			Ref<StyleBox> sb = get_theme_stylebox(SNAME("bg"));
+			Ref<StyleBox> sb = get_theme_style_box(SNAME("bg"));
 
 			draw_style_box(sb, Rect2(Vector2(), get_size()));
 
@@ -1554,7 +1554,7 @@ Size2 EditorInspectorCategory::get_minimum_size() const {
 	}
 	ms.height += get_theme_constant(SNAME("v_separation"), SNAME("Tree"));
 
-	const Ref<StyleBox> &bg_style = get_theme_stylebox(SNAME("bg"));
+	const Ref<StyleBox> &bg_style = get_theme_style_box(SNAME("bg"));
 	ms.height += bg_style->get_content_margin(SIDE_TOP) + bg_style->get_content_margin(SIDE_BOTTOM);
 
 	return ms;
@@ -1653,7 +1653,7 @@ void EditorInspectorSection::_notification(int p_what) {
 			if (indent_depth > 0 && section_indent_size > 0) {
 				inspector_margin += indent_depth * section_indent_size;
 			}
-			Ref<StyleBoxFlat> section_indent_style = get_theme_stylebox(SNAME("indent_box"), SNAME("EditorInspectorSection"));
+			Ref<StyleBoxFlat> section_indent_style = get_theme_style_box(SNAME("indent_box"), SNAME("EditorInspectorSection"));
 			if (indent_depth > 0 && section_indent_style.is_valid()) {
 				inspector_margin += section_indent_style->get_margin(SIDE_LEFT) + section_indent_style->get_margin(SIDE_RIGHT);
 			}
@@ -1676,7 +1676,7 @@ void EditorInspectorSection::_notification(int p_what) {
 			if (indent_depth > 0 && section_indent_size > 0) {
 				section_indent = indent_depth * section_indent_size;
 			}
-			Ref<StyleBoxFlat> section_indent_style = get_theme_stylebox(SNAME("indent_box"), SNAME("EditorInspectorSection"));
+			Ref<StyleBoxFlat> section_indent_style = get_theme_style_box(SNAME("indent_box"), SNAME("EditorInspectorSection"));
 			if (indent_depth > 0 && section_indent_style.is_valid()) {
 				section_indent += section_indent_style->get_margin(SIDE_LEFT) + section_indent_style->get_margin(SIDE_RIGHT);
 			}
@@ -1824,7 +1824,7 @@ Size2 EditorInspectorSection::get_minimum_size() const {
 	if (indent_depth > 0 && section_indent_size > 0) {
 		ms.width += indent_depth * section_indent_size;
 	}
-	Ref<StyleBoxFlat> section_indent_style = get_theme_stylebox(SNAME("indent_box"), SNAME("EditorInspectorSection"));
+	Ref<StyleBoxFlat> section_indent_style = get_theme_style_box(SNAME("indent_box"), SNAME("EditorInspectorSection"));
 	if (indent_depth > 0 && section_indent_style.is_valid()) {
 		ms.width += section_indent_style->get_margin(SIDE_LEFT) + section_indent_style->get_margin(SIDE_RIGHT);
 	}
@@ -2054,7 +2054,7 @@ void EditorInspectorArray::_vbox_visibility_changed() {
 void EditorInspectorArray::_panel_draw(int p_index) {
 	ERR_FAIL_INDEX(p_index, (int)array_elements.size());
 
-	Ref<StyleBox> style = get_theme_stylebox(SNAME("Focus"), EditorStringName(EditorStyles));
+	Ref<StyleBox> style = get_theme_style_box(SNAME("Focus"), EditorStringName(EditorStyles));
 	if (style.is_null()) {
 		return;
 	}
@@ -2480,7 +2480,7 @@ void EditorInspectorArray::_setup() {
 		ae.margin = memnew(MarginContainer);
 		ae.margin->set_mouse_filter(MOUSE_FILTER_PASS);
 		if (is_inside_tree()) {
-			Size2 min_size = get_theme_stylebox(SNAME("Focus"), EditorStringName(EditorStyles))->get_minimum_size();
+			Size2 min_size = get_theme_style_box(SNAME("Focus"), EditorStringName(EditorStyles))->get_minimum_size();
 			ae.margin->begin_bulk_theme_override();
 			ae.margin->add_theme_constant_override("margin_left", min_size.x / 2);
 			ae.margin->add_theme_constant_override("margin_top", min_size.y / 2);
@@ -2632,7 +2632,7 @@ void EditorInspectorArray::_notification(int p_what) {
 				if (ae.move_down) {
 					ae.move_down->set_button_icon(get_editor_theme_icon(SNAME("MoveDown")));
 				}
-				Size2 min_size = get_theme_stylebox(SNAME("Focus"), EditorStringName(EditorStyles))->get_minimum_size();
+				Size2 min_size = get_theme_style_box(SNAME("Focus"), EditorStringName(EditorStyles))->get_minimum_size();
 				ae.margin->begin_bulk_theme_override();
 				ae.margin->add_theme_constant_override("margin_left", min_size.x / 2);
 				ae.margin->add_theme_constant_override("margin_top", min_size.y / 2);
@@ -4729,7 +4729,7 @@ void EditorInspector::_notification(int p_what) {
 			ERR_FAIL_NULL(EditorFeatureProfileManager::get_singleton());
 			EditorFeatureProfileManager::get_singleton()->connect("current_feature_profile_changed", callable_mp(this, &EditorInspector::_feature_profile_changed));
 			set_process(is_visible_in_tree());
-			add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SceneStringName(panel), SNAME("Tree")));
+			add_theme_style_override(SceneStringName(panel), get_theme_style_box(SceneStringName(panel), SNAME("Tree")));
 			if (!is_sub_inspector()) {
 				get_tree()->connect("node_removed", callable_mp(this, &EditorInspector::_node_removed));
 			}
@@ -4800,7 +4800,7 @@ void EditorInspector::_notification(int p_what) {
 		case EditorSettings::NOTIFICATION_EDITOR_SETTINGS_CHANGED: {
 			bool needs_update = false;
 			if (!is_sub_inspector() && EditorThemeManager::is_generated_theme_outdated()) {
-				add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SceneStringName(panel), SNAME("Tree")));
+				add_theme_style_override(SceneStringName(panel), get_theme_style_box(SceneStringName(panel), SNAME("Tree")));
 			}
 
 			if (use_settings_name_style && EditorSettings::get_singleton()->check_changed_settings_in_group("interface/editor/localize_settings")) {

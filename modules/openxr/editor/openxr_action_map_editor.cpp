@@ -61,7 +61,7 @@ void OpenXRActionMapEditor::_notification(int p_what) {
 			for (int i = 0; i < tabs->get_child_count(); i++) {
 				Control *tab = Object::cast_to<Control>(tabs->get_child(i));
 				if (tab) {
-					tab->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SceneStringName(panel), SNAME("Tree")));
+					tab->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SceneStringName(panel), SNAME("Tree")));
 				}
 			}
 		} break;
@@ -121,7 +121,7 @@ OpenXRInteractionProfileEditorBase *OpenXRActionMapEditor::_add_interaction_prof
 	ERR_FAIL_NULL_V(new_profile_editor, nullptr);
 	new_profile_editor->setup(action_map, p_interaction_profile);
 	tabs->add_child(new_profile_editor);
-	new_profile_editor->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SceneStringName(panel), SNAME("Tree")));
+	new_profile_editor->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SceneStringName(panel), SNAME("Tree")));
 	tabs->set_tab_button_icon(tabs->get_tab_count() - 1, get_theme_icon(SNAME("close"), SNAME("TabBar")));
 
 	if (!new_profile_editor->tooltip.is_empty()) {

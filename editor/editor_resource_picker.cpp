@@ -103,7 +103,7 @@ void EditorResourcePicker::_update_resource_preview(const String &p_path, const 
 		}
 
 		if (p_preview.is_valid()) {
-			preview_rect->set_offset(SIDE_LEFT, assign_button->get_button_icon()->get_width() + assign_button->get_theme_stylebox(CoreStringName(normal))->get_content_margin(SIDE_LEFT) + get_theme_constant(SNAME("h_separation"), SNAME("Button")));
+			preview_rect->set_offset(SIDE_LEFT, assign_button->get_button_icon()->get_width() + assign_button->get_theme_style_box(CoreStringName(normal))->get_content_margin(SIDE_LEFT) + get_theme_constant(SNAME("h_separation"), SNAME("Button")));
 
 			// Resource-specific stretching.
 			if (Ref<GradientTexture1D>(edited_resource).is_valid() || Ref<Gradient>(edited_resource).is_valid()) {
@@ -845,7 +845,7 @@ void EditorResourcePicker::_notification(int p_what) {
 		} break;
 
 		case NOTIFICATION_DRAW: {
-			draw_style_box(get_theme_stylebox(SceneStringName(panel), SNAME("Tree")), Rect2(Point2(), get_size()));
+			draw_style_box(get_theme_style_box(SceneStringName(panel), SNAME("Tree")), Rect2(Point2(), get_size()));
 		} break;
 
 		case NOTIFICATION_DRAG_BEGIN: {

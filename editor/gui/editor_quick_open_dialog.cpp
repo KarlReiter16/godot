@@ -810,7 +810,7 @@ void QuickOpenResultContainer::_notification(int p_what) {
 			file_details_path->add_theme_color_override(SceneStringName(font_color), text_color);
 			no_results_label->add_theme_color_override(SceneStringName(font_color), text_color);
 
-			panel_container->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SceneStringName(panel), SNAME("Tree")));
+			panel_container->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SceneStringName(panel), SNAME("Tree")));
 
 			if (content_display_mode == QuickOpenDisplayMode::LIST) {
 				display_mode_toggle->set_button_icon(get_editor_theme_icon(SNAME("FileThumbnail")));
@@ -909,8 +909,8 @@ void QuickOpenResultItem::_notification(int p_what) {
 			queue_redraw();
 		} break;
 		case NOTIFICATION_THEME_CHANGED: {
-			selected_stylebox = get_theme_stylebox("selected", "Tree");
-			hovering_stylebox = get_theme_stylebox(SNAME("hovered"), "Tree");
+			selected_stylebox = get_theme_style_box("selected", "Tree");
+			hovering_stylebox = get_theme_style_box(SNAME("hovered"), "Tree");
 			highlighted_font_color = get_theme_color("font_focus_color", EditorStringName(Editor));
 		} break;
 		case NOTIFICATION_DRAW: {

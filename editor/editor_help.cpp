@@ -248,7 +248,7 @@ void EditorHelp::_update_theme_item_cache() {
 	theme_cache.doc_code_font_size = get_theme_font_size(SNAME("doc_source_size"), EditorStringName(EditorFonts));
 	theme_cache.doc_kbd_font_size = get_theme_font_size(SNAME("doc_keyboard_size"), EditorStringName(EditorFonts));
 
-	theme_cache.background_style = get_theme_stylebox(SNAME("background"), SNAME("EditorHelp"));
+	theme_cache.background_style = get_theme_style_box(SNAME("background"), SNAME("EditorHelp"));
 
 	class_desc->begin_bulk_theme_override();
 	class_desc->add_theme_font_override("normal_font", theme_cache.doc_font);
@@ -4212,7 +4212,7 @@ void EditorHelpBit::set_content_height_limits(float p_min, float p_max) {
 
 void EditorHelpBit::update_content_height() {
 	float content_height = content->get_content_height();
-	const Ref<StyleBox> style = content->get_theme_stylebox(CoreStringName(normal));
+	const Ref<StyleBox> style = content->get_theme_style_box(CoreStringName(normal));
 	if (style.is_valid()) {
 		content_height += style->get_content_margin(SIDE_TOP) + style->get_content_margin(SIDE_BOTTOM);
 	}

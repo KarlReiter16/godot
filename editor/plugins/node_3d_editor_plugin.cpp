@@ -3236,7 +3236,7 @@ void Node3DEditorViewport::_notification(int p_what) {
 			preview_camera->set_button_icon(get_editor_theme_icon(SNAME("Camera3D")));
 			Control *gui_base = EditorNode::get_singleton()->get_gui_base();
 
-			const Ref<StyleBox> &information_3d_stylebox = gui_base->get_theme_stylebox(SNAME("Information3dViewport"), EditorStringName(EditorStyles));
+			const Ref<StyleBox> &information_3d_stylebox = gui_base->get_theme_style_box(SNAME("Information3dViewport"), EditorStringName(EditorStyles));
 
 			view_menu->begin_bulk_theme_override();
 			view_menu->add_theme_style_override(CoreStringName(normal), information_3d_stylebox);
@@ -3342,7 +3342,7 @@ void Node3DEditorViewport::_draw() {
 	if (surface->has_focus() || rotation_control->has_focus()) {
 		Size2 size = surface->get_size();
 		Rect2 r = Rect2(Point2(), size);
-		get_theme_stylebox(SNAME("FocusViewport"), EditorStringName(EditorStyles))->draw(surface->get_canvas_item(), r);
+		get_theme_style_box(SNAME("FocusViewport"), EditorStringName(EditorStyles))->draw(surface->get_canvas_item(), r);
 	}
 
 	if (cursor.region_select) {
@@ -8181,7 +8181,7 @@ void Node3DEditor::_update_theme() {
 	environ_sky_color->set_custom_minimum_size(Size2(0, get_theme_constant(SNAME("color_picker_button_height"), EditorStringName(Editor))));
 	environ_ground_color->set_custom_minimum_size(Size2(0, get_theme_constant(SNAME("color_picker_button_height"), EditorStringName(Editor))));
 
-	context_toolbar_panel->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SNAME("ContextualToolbar"), EditorStringName(EditorStyles)));
+	context_toolbar_panel->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SNAME("ContextualToolbar"), EditorStringName(EditorStyles)));
 }
 
 void Node3DEditor::_notification(int p_what) {

@@ -2227,7 +2227,7 @@ Ref<Texture2D> Window::get_theme_icon(const StringName &p_name, const StringName
 	return icon;
 }
 
-Ref<StyleBox> Window::get_theme_stylebox(const StringName &p_name, const StringName &p_theme_type) const {
+Ref<StyleBox> Window::get_theme_style_box(const StringName &p_name, const StringName &p_theme_type) const {
 	ERR_READ_THREAD_GUARD_V(Ref<StyleBox>());
 	if (!initialized) {
 		WARN_PRINT_ONCE(vformat("Attempting to access theme items too early in %s; prefer NOTIFICATION_POSTINITIALIZE and NOTIFICATION_THEME_CHANGED", get_description()));
@@ -2360,7 +2360,7 @@ Variant Window::get_theme_item(Theme::DataType p_data_type, const StringName &p_
 		case Theme::DATA_TYPE_ICON:
 			return get_theme_icon(p_name, p_theme_type);
 		case Theme::DATA_TYPE_STYLEBOX:
-			return get_theme_stylebox(p_name, p_theme_type);
+			return get_theme_style_box(p_name, p_theme_type);
 		case Theme::DATA_TYPE_MAX:
 			break; // Can't happen, but silences warning.
 	}
@@ -3010,7 +3010,7 @@ void Window::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("remove_theme_constant_override", "name"), &Window::remove_theme_constant_override);
 
 	ClassDB::bind_method(D_METHOD("get_theme_icon", "name", "theme_type"), &Window::get_theme_icon, DEFVAL(StringName()));
-	ClassDB::bind_method(D_METHOD("get_theme_stylebox", "name", "theme_type"), &Window::get_theme_stylebox, DEFVAL(StringName()));
+	ClassDB::bind_method(D_METHOD("get_theme_style_box", "name", "theme_type"), &Window::get_theme_style_box, DEFVAL(StringName()));
 	ClassDB::bind_method(D_METHOD("get_theme_font", "name", "theme_type"), &Window::get_theme_font, DEFVAL(StringName()));
 	ClassDB::bind_method(D_METHOD("get_theme_font_size", "name", "theme_type"), &Window::get_theme_font_size, DEFVAL(StringName()));
 	ClassDB::bind_method(D_METHOD("get_theme_color", "name", "theme_type"), &Window::get_theme_color, DEFVAL(StringName()));

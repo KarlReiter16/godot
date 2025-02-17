@@ -1495,8 +1495,8 @@ void AnimationTimelineEdit::_notification(int p_what) {
 			const Ref<Font> font = get_theme_font(SceneStringName(font), SNAME("Label"));
 			const int font_size = get_theme_font_size(SceneStringName(font_size), SNAME("Label"));
 
-			const Ref<StyleBox> &stylebox_time_unavailable = get_theme_stylebox(SNAME("time_unavailable"), SNAME("AnimationTimelineEdit"));
-			const Ref<StyleBox> &stylebox_time_available = get_theme_stylebox(SNAME("time_available"), SNAME("AnimationTimelineEdit"));
+			const Ref<StyleBox> &stylebox_time_unavailable = get_theme_style_box(SNAME("time_unavailable"), SNAME("AnimationTimelineEdit"));
+			const Ref<StyleBox> &stylebox_time_available = get_theme_style_box(SNAME("time_available"), SNAME("AnimationTimelineEdit"));
 
 			const Color v_line_primary_color = get_theme_color(SNAME("v_line_primary_color"), SNAME("AnimationTimelineEdit"));
 			const Color v_line_secondary_color = get_theme_color(SNAME("v_line_secondary_color"), SNAME("AnimationTimelineEdit"));
@@ -2064,9 +2064,9 @@ void AnimationTrackEdit::_notification(int p_what) {
 
 			int limit = timeline->get_name_limit();
 
-			const Ref<StyleBox> &stylebox_odd = get_theme_stylebox(SNAME("odd"), SNAME("AnimationTrackEdit"));
-			const Ref<StyleBox> &stylebox_focus = get_theme_stylebox(SNAME("focus"), SNAME("AnimationTrackEdit"));
-			const Ref<StyleBox> &stylebox_hover = get_theme_stylebox(SceneStringName(hover), SNAME("AnimationTrackEdit"));
+			const Ref<StyleBox> &stylebox_odd = get_theme_style_box(SNAME("odd"), SNAME("AnimationTrackEdit"));
+			const Ref<StyleBox> &stylebox_focus = get_theme_style_box(SNAME("focus"), SNAME("AnimationTrackEdit"));
+			const Ref<StyleBox> &stylebox_hover = get_theme_style_box(SceneStringName(hover), SNAME("AnimationTrackEdit"));
 
 			const Color h_line_color = get_theme_color(SNAME("h_line_color"), SNAME("AnimationTrackEdit"));
 			const int h_separation = get_theme_constant(SNAME("h_separation"), SNAME("AnimationTrackEdit"));
@@ -3133,7 +3133,7 @@ void AnimationTrackEdit::gui_input(const Ref<InputEvent> &p_event) {
 		}
 
 		path->set_text(animation->track_get_path(track));
-		const Vector2 theme_ofs = path->get_theme_stylebox(CoreStringName(normal), SNAME("LineEdit"))->get_offset();
+		const Vector2 theme_ofs = path->get_theme_style_box(CoreStringName(normal), SNAME("LineEdit"))->get_offset();
 
 		moving_selection_attempt = false;
 		moving_selection = false;
@@ -3595,7 +3595,7 @@ void AnimationTrackEditGroup::_notification(int p_what) {
 			const int font_size = get_theme_font_size(SceneStringName(font_size), SNAME("Label"));
 			Color color = get_theme_color(SceneStringName(font_color), SNAME("Label"));
 
-			const Ref<StyleBox> &stylebox_header = get_theme_stylebox(SNAME("header"), SNAME("AnimationTrackEditGroup"));
+			const Ref<StyleBox> &stylebox_header = get_theme_style_box(SNAME("header"), SNAME("AnimationTrackEditGroup"));
 			const int outer_margin = get_theme_constant(SNAME("outer_margin"), SNAME("AnimationTrackEdit"));
 
 			float v_margin_offset = stylebox_header->get_content_margin(SIDE_TOP) - stylebox_header->get_content_margin(SIDE_BOTTOM);
@@ -3722,7 +3722,7 @@ Size2 AnimationTrackEditGroup::get_minimum_size() const {
 	const int font_size = get_theme_font_size(SceneStringName(font_size), SNAME("Label"));
 	const int separation = get_theme_constant(SNAME("v_separation"), SNAME("ItemList"));
 
-	const Ref<StyleBox> &header_style = get_theme_stylebox(SNAME("header"), SNAME("AnimationTrackEditGroup"));
+	const Ref<StyleBox> &header_style = get_theme_style_box(SNAME("header"), SNAME("AnimationTrackEditGroup"));
 	const int content_margin = header_style->get_content_margin(SIDE_TOP) + header_style->get_content_margin(SIDE_BOTTOM);
 
 	return Vector2(0, MAX(font->get_height(font_size), icon_size.y) + separation + content_margin);
@@ -5158,7 +5158,7 @@ void AnimationTrackEditor::_notification(int p_what) {
 			imported_anim_warning->set_button_icon(get_editor_theme_icon(SNAME("NodeWarning")));
 			dummy_player_warning->set_button_icon(get_editor_theme_icon(SNAME("NodeWarning")));
 			inactive_player_warning->set_button_icon(get_editor_theme_icon(SNAME("NodeWarning")));
-			main_panel->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SceneStringName(panel), SNAME("Tree")));
+			main_panel->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SceneStringName(panel), SNAME("Tree")));
 			edit->get_popup()->set_item_icon(edit->get_popup()->get_item_index(EDIT_APPLY_RESET), get_editor_theme_icon(SNAME("Reload")));
 			auto_fit->set_button_icon(get_editor_theme_icon(SNAME("AnimationAutoFit")));
 			auto_fit_bezier->set_button_icon(get_editor_theme_icon(SNAME("AnimationAutoFitBezier")));

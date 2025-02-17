@@ -2462,7 +2462,7 @@ void TileSetAtlasSourceEditor::_notification(int p_what) {
 			resize_handle = get_editor_theme_icon(SNAME("EditorHandle"));
 			resize_handle_disabled = get_editor_theme_icon(SNAME("EditorHandleDisabled"));
 
-			tile_data_editors_tree->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SceneStringName(panel), "PopupPanel"));
+			tile_data_editors_tree->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SceneStringName(panel), "PopupPanel"));
 		} break;
 
 		case NOTIFICATION_INTERNAL_PROCESS: {

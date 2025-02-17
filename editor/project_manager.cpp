@@ -220,8 +220,8 @@ void ProjectManager::_update_theme(bool p_skip_creation) {
 		root_container->add_theme_constant_override("margin_right", top_bar_separation);
 		main_vbox->add_theme_constant_override("separation", top_bar_separation);
 
-		background_panel->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SNAME("Background"), EditorStringName(EditorStyles)));
-		main_view_container->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SceneStringName(panel), SNAME("TabContainer")));
+		background_panel->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SNAME("Background"), EditorStringName(EditorStyles)));
+		main_view_container->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SceneStringName(panel), SNAME("TabContainer")));
 
 		title_bar_logo->set_button_icon(get_editor_theme_icon(SNAME("TitleBarLogo")));
 
@@ -231,7 +231,7 @@ void ProjectManager::_update_theme(bool p_skip_creation) {
 		// Project list.
 		{
 			loading_label->add_theme_font_override(SceneStringName(font), get_theme_font(SNAME("bold"), EditorStringName(EditorFonts)));
-			project_list_panel->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SNAME("project_list"), SNAME("ProjectManager")));
+			project_list_panel->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SNAME("project_list"), SNAME("ProjectManager")));
 
 			empty_list_create_project->set_button_icon(get_editor_theme_icon(SNAME("Add")));
 			empty_list_import_project->set_button_icon(get_editor_theme_icon(SNAME("Load")));

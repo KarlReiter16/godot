@@ -587,7 +587,7 @@ TEST_CASE("[SceneTree][TabContainer] layout and offset") {
 
 	SUBCASE("[TabContainer] tab position") {
 		float tab_height = tab_rects[0].size.y;
-		Ref<StyleBox> panel_style = tab_container->get_theme_stylebox("panel_style");
+		Ref<StyleBox> panel_style = tab_container->get_theme_style_box("panel_style");
 
 		// Initial position, same as top position.
 		// Tab bar is at the top.

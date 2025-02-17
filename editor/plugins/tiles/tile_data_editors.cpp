@@ -136,7 +136,7 @@ void GenericTilePolygonEditor::_base_control_draw() {
 	Color grid_color = EDITOR_GET("editors/tiles_editor/grid_color");
 	const Ref<Texture2D> handle = get_editor_theme_icon(SNAME("EditorPathSharpHandle"));
 	const Ref<Texture2D> add_handle = get_editor_theme_icon(SNAME("EditorHandleAdd"));
-	const Ref<StyleBox> focus_stylebox = get_theme_stylebox(SNAME("Focus"), EditorStringName(EditorStyles));
+	const Ref<StyleBox> focus_stylebox = get_theme_style_box(SNAME("Focus"), EditorStringName(EditorStyles));
 
 	// Get the background data.
 	Rect2 background_region;

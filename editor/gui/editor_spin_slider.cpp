@@ -288,7 +288,7 @@ void EditorSpinSlider::_update_value_input_stylebox() {
 	// Add a left margin to the stylebox to make the number align with the Label
 	// when it's edited. The LineEdit "focus" stylebox uses the "normal" stylebox's
 	// default margins.
-	Ref<StyleBox> stylebox = get_theme_stylebox(CoreStringName(normal), SNAME("LineEdit"))->duplicate();
+	Ref<StyleBox> stylebox = get_theme_style_box(CoreStringName(normal), SNAME("LineEdit"))->duplicate();
 	// EditorSpinSliders with a label have more space on the left, so add an
 	// higher margin to match the location where the text begins.
 	// The margin values below were determined by empirical testing.
@@ -308,7 +308,7 @@ void EditorSpinSlider::_draw_spin_slider() {
 	bool rtl = is_layout_rtl();
 	Vector2 size = get_size();
 
-	Ref<StyleBox> sb = get_theme_stylebox(read_only ? SNAME("read_only") : CoreStringName(normal), SNAME("LineEdit"));
+	Ref<StyleBox> sb = get_theme_style_box(read_only ? SNAME("read_only") : CoreStringName(normal), SNAME("LineEdit"));
 	if (!flat) {
 		draw_style_box(sb, Rect2(Vector2(), size));
 	}
@@ -330,7 +330,7 @@ void EditorSpinSlider::_draw_spin_slider() {
 	Color lc = get_theme_color(read_only ? SNAME("read_only_label_color") : SNAME("label_color"));
 
 	if (flat && !label.is_empty()) {
-		Ref<StyleBox> label_bg = get_theme_stylebox(SNAME("label_bg"), SNAME("EditorSpinSlider"));
+		Ref<StyleBox> label_bg = get_theme_style_box(SNAME("label_bg"), SNAME("EditorSpinSlider"));
 		if (rtl) {
 			draw_style_box(label_bg, Rect2(Vector2(size.width - (sb->get_offset().x * 2 + label_width), 0), Vector2(sb->get_offset().x * 2 + label_width, size.height)));
 		} else {
@@ -339,7 +339,7 @@ void EditorSpinSlider::_draw_spin_slider() {
 	}
 
 	if (has_focus()) {
-		Ref<StyleBox> focus = get_theme_stylebox(SNAME("focus"), SNAME("LineEdit"));
+		Ref<StyleBox> focus = get_theme_style_box(SNAME("focus"), SNAME("LineEdit"));
 		draw_style_box(focus, Rect2(Vector2(), size));
 	}
 
@@ -511,7 +511,7 @@ LineEdit *EditorSpinSlider::get_line_edit() {
 }
 
 Size2 EditorSpinSlider::get_minimum_size() const {
-	Ref<StyleBox> sb = get_theme_stylebox(CoreStringName(normal), SNAME("LineEdit"));
+	Ref<StyleBox> sb = get_theme_style_box(CoreStringName(normal), SNAME("LineEdit"));
 	Ref<Font> font = get_theme_font(SceneStringName(font), SNAME("LineEdit"));
 	int font_size = get_theme_font_size(SceneStringName(font_size), SNAME("LineEdit"));
 

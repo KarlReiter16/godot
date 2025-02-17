@@ -180,7 +180,7 @@ void AnimationNodeStateMachineEditor::_state_machine_gui_input(const Ref<InputEv
 			if (!read_only) {
 				if (node_rects[i].name.has_point(mb->get_position()) && state_machine->can_edit_node(node_rects[i].node_name)) { // edit name
 					// TODO: Avoid using strings, expose a method on LineEdit.
-					Ref<StyleBox> line_sb = name_edit->get_theme_stylebox(CoreStringName(normal));
+					Ref<StyleBox> line_sb = name_edit->get_theme_style_box(CoreStringName(normal));
 					Rect2 edit_rect = node_rects[i].name;
 					edit_rect.position -= line_sb->get_offset();
 					edit_rect.size += line_sb->get_minimum_size();

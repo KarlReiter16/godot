@@ -1591,7 +1591,7 @@ void GraphEdit::_minimap_draw() {
 		Ref<StyleBoxFlat> sb_minimap = minimap->theme_cache.node_style->duplicate();
 
 		// Override default values with colors provided by the GraphNode's stylebox, if possible.
-		Ref<StyleBoxFlat> sb_frame = graph_frame->get_theme_stylebox(graph_frame->is_selected() ? SNAME("panel_selected") : SceneStringName(panel));
+		Ref<StyleBoxFlat> sb_frame = graph_frame->get_theme_style_box(graph_frame->is_selected() ? SNAME("panel_selected") : SceneStringName(panel));
 		if (sb_frame.is_valid()) {
 			Color node_color = sb_frame->get_bg_color();
 			if (graph_frame->is_tint_color_enabled()) {

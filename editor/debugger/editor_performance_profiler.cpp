@@ -115,7 +115,7 @@ void EditorPerformanceProfiler::_monitor_draw() {
 
 	info_message->hide();
 
-	Ref<StyleBox> graph_style_box = get_theme_stylebox(CoreStringName(normal), SNAME("TextEdit"));
+	Ref<StyleBox> graph_style_box = get_theme_style_box(CoreStringName(normal), SNAME("TextEdit"));
 	Ref<Font> graph_font = get_theme_font(SceneStringName(font), SNAME("TextEdit"));
 	int font_size = get_theme_font_size(SceneStringName(font_size), SNAME("TextEdit"));
 
@@ -280,7 +280,7 @@ void EditorPerformanceProfiler::_marker_input(const Ref<InputEvent> &p_event) {
 				} else {
 					marker_key = "";
 				}
-				Ref<StyleBox> graph_style_box = get_theme_stylebox(CoreStringName(normal), SNAME("TextEdit"));
+				Ref<StyleBox> graph_style_box = get_theme_style_box(CoreStringName(normal), SNAME("TextEdit"));
 				rect.position += graph_style_box->get_offset();
 				rect.size -= graph_style_box->get_minimum_size();
 				Vector2 point = mb->get_position() - rect.position;

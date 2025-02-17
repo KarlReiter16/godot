@@ -876,7 +876,7 @@ void ScriptEditorDebugger::_notification(int p_what) {
 		} break;
 
 		case NOTIFICATION_THEME_CHANGED: {
-			tabs->add_theme_style_override(SceneStringName(panel), get_theme_stylebox(SNAME("DebuggerPanel"), EditorStringName(EditorStyles)));
+			tabs->add_theme_style_override(SceneStringName(panel), get_theme_style_box(SNAME("DebuggerPanel"), EditorStringName(EditorStyles)));
 
 			skip_breakpoints->set_button_icon(get_editor_theme_icon(skip_breakpoints_value ? SNAME("DebugSkipBreakpointsOn") : SNAME("DebugSkipBreakpointsOff")));
 			copy->set_button_icon(get_editor_theme_icon(SNAME("ActionCopy")));

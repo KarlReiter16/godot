@@ -55,7 +55,7 @@ void EmbeddedProcess::_notification(int p_what) {
 			queue_update_embedded_process();
 		} break;
 		case NOTIFICATION_THEME_CHANGED: {
-			focus_style_box = get_theme_stylebox(SNAME("FocusViewport"), EditorStringName(EditorStyles));
+			focus_style_box = get_theme_style_box(SNAME("FocusViewport"), EditorStringName(EditorStyles));
 			Ref<StyleBoxFlat> focus_style_box_flat = focus_style_box;
 			if (focus_style_box_flat.is_valid()) {
 				margin_top_left = Point2i(focus_style_box_flat->get_border_width(SIDE_LEFT), focus_style_box_flat->get_border_width(SIDE_TOP));

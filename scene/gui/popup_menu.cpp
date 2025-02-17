@@ -371,7 +371,7 @@ void PopupMenu::_activate_submenu(int p_over, bool p_by_keyboard) {
 	const Size2 submenu_size = submenu_popup->get_size();
 
 	// Calculate the submenu's position.
-	Point2 submenu_pos(0, -submenu_popup->get_theme_stylebox(SceneStringName(panel))->get_margin(SIDE_TOP) * submenu_popup->get_content_scale_factor());
+	Point2 submenu_pos(0, -submenu_popup->get_theme_style_box(SceneStringName(panel))->get_margin(SIDE_TOP) * submenu_popup->get_content_scale_factor());
 	Rect2i screen_rect = is_embedded() ? Rect2i(get_embedder()->get_visible_rect()) : get_parent_rect();
 	if (is_layout_rtl()) {
 		submenu_pos += this_pos + Point2(-submenu_size.width + panel_ofs_end.x, scaled_ofs_cache + scroll_offset - theme_cache.v_separation / 2);

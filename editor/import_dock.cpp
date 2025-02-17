@@ -699,7 +699,7 @@ void ImportDock::_notification(int p_what) {
 	switch (p_what) {
 		case EditorSettings::NOTIFICATION_EDITOR_SETTINGS_CHANGED: {
 			if (EditorThemeManager::is_generated_theme_outdated()) {
-				imported->add_theme_style_override(CoreStringName(normal), get_theme_stylebox(CoreStringName(normal), SNAME("LineEdit")));
+				imported->add_theme_style_override(CoreStringName(normal), get_theme_style_box(CoreStringName(normal), SNAME("LineEdit")));
 			}
 		} break;
 

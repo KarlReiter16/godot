@@ -67,7 +67,7 @@ void ColorChannelSelector::_notification(int p_what) {
 	if (p_what == NOTIFICATION_THEME_CHANGED) {
 		// PanelContainer's background is invisible in the editor. We need a background.
 		// And we need this in turn because buttons don't look good without background (for example, hover is transparent).
-		Ref<StyleBox> bg_style = get_theme_stylebox(SceneStringName(panel), "TabContainer");
+		Ref<StyleBox> bg_style = get_theme_style_box(SceneStringName(panel), "TabContainer");
 		ERR_FAIL_COND(bg_style.is_null());
 		bg_style = bg_style->duplicate();
 		// The default content margin makes the widget become a bit too large. It should be like mini-toolbar.
