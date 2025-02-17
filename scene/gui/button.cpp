@@ -122,7 +122,7 @@ void Button::_update_theme_item_cache() {
 	theme_cache.max_style_size = theme_cache.max_style_size.max(Vector2(theme_cache.style_margin_left + theme_cache.style_margin_right, theme_cache.style_margin_top + theme_cache.style_margin_bottom));
 }
 
-Size2 Button::_get_largest_stylebox_size() const {
+Size2 Button::_get_largest_style_box_size() const {
 	return theme_cache.max_style_size;
 }
 
@@ -531,7 +531,7 @@ Size2 Button::get_minimum_size_for_text_and_icon(const String &p_text, Ref<Textu
 		}
 	}
 
-	return (theme_cache.align_to_largest_style_box ? _get_largest_stylebox_size() : _get_current_stylebox()->get_minimum_size()) + minsize;
+	return (theme_cache.align_to_largest_style_box ? _get_largest_style_box_size() : _get_current_stylebox()->get_minimum_size()) + minsize;
 }
 
 void Button::_shape(Ref<TextParagraph> p_paragraph, String p_text) const {

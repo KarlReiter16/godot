@@ -114,7 +114,7 @@ protected:
 
 	Size2 _fit_icon_size(const Size2 &p_size) const;
 	Ref<StyleBox> _get_current_stylebox() const;
-	Size2 _get_largest_stylebox_size() const;
+	Size2 _get_largest_style_box_size() const;
 	void _notification(int p_what);
 	static void _bind_methods();
 
