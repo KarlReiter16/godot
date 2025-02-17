@@ -382,7 +382,7 @@ void SpinBox::_notification(int p_what) {
 				down_icon = theme_cache.down_disabled_icon;
 				down_icon_modulate = theme_cache.down_disabled_icon_modulate;
 			} else if (state_cache.down_button_pressed && !drag.enabled) {
-				down_style_box = theme_cache.down_pressed_stylebox;
+				down_style_box = theme_cache.down_pressed_style_box;
 				down_icon = theme_cache.down_pressed_icon;
 				down_icon_modulate = theme_cache.down_pressed_icon_modulate;
 			} else if (state_cache.down_button_hovered && !drag.enabled) {
@@ -605,7 +605,7 @@ void SpinBox::_bind_methods() {
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, up_disabled_style_box, "up_background_disabled");
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, down_base_style_box, "down_background");
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, down_hover_style_box, "down_background_hovered");
-	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, down_pressed_stylebox, "down_background_pressed");
+	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, down_pressed_style_box, "down_background_pressed");
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_STYLEBOX, SpinBox, down_disabled_stylebox, "down_background_disabled");
 
 	BIND_THEME_ITEM_CUSTOM(Theme::DATA_TYPE_COLOR, SpinBox, up_icon_modulate, "up_icon_modulate");
