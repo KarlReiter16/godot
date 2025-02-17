@@ -3003,7 +3003,7 @@ void Window::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("add_theme_constant_override", "name", "constant"), &Window::add_theme_constant_override);
 
 	ClassDB::bind_method(D_METHOD("remove_theme_icon_override", "name"), &Window::remove_theme_icon_override);
-	ClassDB::bind_method(D_METHOD("remove_theme_stylebox_override", "name"), &Window::remove_theme_style_override);
+	ClassDB::bind_method(D_METHOD("remove_theme_style_box_override", "name"), &Window::remove_theme_style_override);
 	ClassDB::bind_method(D_METHOD("remove_theme_font_override", "name"), &Window::remove_theme_font_override);
 	ClassDB::bind_method(D_METHOD("remove_theme_font_size_override", "name"), &Window::remove_theme_font_size_override);
 	ClassDB::bind_method(D_METHOD("remove_theme_color_override", "name"), &Window::remove_theme_color_override);

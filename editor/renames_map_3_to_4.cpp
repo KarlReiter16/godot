@@ -485,7 +485,7 @@ const char *RenamesMap3To4::gdscript_function_renames[][2] = {
 	{ "remove_icon_override", "remove_theme_icon_override" }, // Control
 	{ "remove_scene_import_plugin", "remove_scene_format_importer_plugin" }, //EditorPlugin
 	{ "remove_spatial_gizmo_plugin", "remove_node_3d_gizmo_plugin" }, // EditorPlugin
-	{ "remove_stylebox_override", "remove_theme_stylebox_override" }, // Control
+	{ "remove_stylebox_override", "remove_theme_style_box_override" }, // Control
 	{ "rename_animation", "rename_animation_library" }, // AnimationPlayer
 	{ "rename_dependencies", "_rename_dependencies" }, // ResourceFormatLoader
 	{ "save_external_data", "_save_external_data" }, // EditorPlugin
